@@ -1,0 +1,136 @@
+[bar/default-bar]
+;monitor = eDP-1
+width = 100%
+height = 28
+
+bottom = true
+
+background = #0000000
+foreground = #ccffffff
+
+line-color = #00000000
+line-size = 16
+
+spacing = 0
+padding-right = 5
+module-margin = 3
+
+font-0 = NotoSans-Regular:size=10;1
+font-1 = MaterialIcons:size=13;4
+font-2 = Hack:size=10;2
+font-3 = "Font Awesome 5 Free:size=13;4"
+
+modules-left = i3
+modules-right = pulseaudio wireless-network battery keyboard date
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = false
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
+
+label-focused = %index%
+label-focused-foreground = #ffffff
+label-focused-background = #773f3f3f
+label-focused-padding = 4
+
+label-unfocused = %index%
+label-unfocused-padding = 4
+
+label-visible = %index%
+label-visible-underline = #555555
+label-visible-padding = 4
+
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+[module/pulseaudio]
+type = internal/pulseaudio
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+use-ui-max = false
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =   muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+[module/wireless-network]
+type = internal/network
+interface = wlan0
+interval = 3.0
+ping-interval = 10
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+label-disconnected =    not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/top.foreground}
+animation-packetloss-framerate = 500
+
+[module/wired-network]
+internal/network
+interface = eth0
+interval = 3.0
+
+label-connected =    %{T3}%local_ip%%{T-}
+label-disconnected-foreground = #66
+
+[module/battery]
+type = internal/battery
+full-at = 98
+battery = BAT1
+adapter = ACAD
+
+format-charging =  <label-charging>
+format-discharging =  <label-discharging>
+format-full =  <label-full>
+
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-font = 2
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-empty = █
+bar-capacity-empty-font = 2
+bar-capacity-empty-foreground = #44ffffff
+
+[module/keyboard]
+type = custom/script
+
+label = %output:2%
+label-font = 3
+
+tail = true
+exec = while true; do xkb-switch | tr '[:lower:]' '[:upper:]'; xkb-switch -w; done
+click-left = xkb-switch -n
+
+[module/date]
+type = internal/date
+interval = 2
+date =   %%{F#fff}%d-%m-%Y%%{F-}  %%{F#fff}%H:%M%%{F-}
+

@@ -1,0 +1,7 @@
+[user]
+	email = stnrepin@gmail.com
+	name = Stepan Repin
+[core]
+	editor = nvim
+[credential]
+	helper = store
