@@ -177,7 +177,7 @@ bindsym XF86AudioLowerVolume exec pamixer --decrease 5
 bindsym XF86AudioMute exec pamixer --toggle-mute
 
 # PrintScreen
-bindsym Print exec deepin-screenshot
+bindsym Print exec flameshot gui 
 
 # GAPS AND BORDERS
 #
@@ -191,6 +191,7 @@ for_window [class="Popup Calendar"] floating enable, resize set 200 200
 
 # EXEC's
 #
+exec_always --no-startup-id flameshot
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
 exec_always --no-startup-id feh --bg-fill "$HOME/wallpaper.jpg"
