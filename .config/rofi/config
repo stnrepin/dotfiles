@@ -1,9 +1,11 @@
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
+! Based on: onehalfdark.vim
 rofi.color-enabled: true
-rofi.color-window: #1d1f21, #393939, #ffffff
-rofi.color-normal: #1d1f21, #ffffff, #1d1f21, #3f3f3f, #ffffff
-rofi.color-active: #1d1f21, #773f3f3f, #1d1f21, #3f3f3f, #205171
-rofi.color-urgent: #1d1f21, #f3843d, #1d1f21, #3f3f3f, #ffc39c
+rofi.color-window: #282c34, #313640, #ffffff
+rofi.color-normal: #282c34, #ffffff, #282c34, #474e5d, #ffffff
+rofi.color-active: #282c34, #773f3f3f, #282c34, #474e5d, #205171
+rofi.color-urgent: #282c34, #f3843d, #282c34, #474e5d, #ffc39c
 
+rofi.bw: 3
