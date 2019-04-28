@@ -1,48 +1,88 @@
 " Vim config.
-"
+" ===============================================
 
 " Disable vi compatibility.
 set nocompatible
 
 filetype off
 
-" =======
+" ===============================================
 " Plugins
-" =======
+" ===============================================
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle.
+" Color scheme
+Bundle 'sonph/onehalf', {'rtp': 'vim/'}
+
+" Vundle.
 Plugin 'VundleVim/Vundle.vim'
 
-" https://github.com/plasticboy/vim-markdown
+" Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
 " Keyboard switcher.
 Plugin 'lyokha/vim-xkbswitch'
 
-call vundle#end()
-filetype plugin on
+" Autocompletion
+Plugin 'Valloric/YouCompleteMe'
 
-" =======
+" Snippets
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" Hightlight
+Plugin 'arakashic/chromatica.nvim'
+
+call vundle#end()
+filetype indent plugin on
+
+" ===============================================
 " Plugins config
-" =======
+" ===============================================
+
+" Color scheme
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
 
 " Keyboard switcher.
-let g:XkbSwitchEnabled = 1
-let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
-let g:XkbSwitchIMappings = ['ru']
+let g:XkbSwitchEnabled=1
+let g:XkbSwitchLib='/usr/lib/libxkbswitch.so'
+let g:XkbSwitchIMappings=['ru']
 
-" Vim-markdown
-let g:vim_markdown_math = 1
-let g:vim_markdown_strikethrough = 1
-let g:vim_markdown_auto_insert_bullets = 0
+" Markdown
+let g:vim_markdown_math=1
+let g:vim_markdown_strikethrough=1
+let g:vim_markdown_auto_insert_bullets=0
 
-" =======
+" Autocompletion
+let g:ycm_use_clangd=0
+
+" Hightlight
+let g:chromatica#enable_at_startup=1
+let g:chromatica#global_args=['-Iinclude/']
+
+
+" ===============================================
+" Plugins key bindings
+" ===============================================
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<leader>s"
+
+" YouCompleteMe
+nnoremap <silent> eu :YcmDiags<CR>
+
+" ===============================================
 " Common
-" =======
+" ===============================================
 
 " Hide launch screen.
 set shortmess+=I 
@@ -115,13 +155,29 @@ set noshowmode
 set clipboard=unnamedplus
 
 " Show matching brackets.
-set showmatch 
+set showmatch
 
-" =======
-" Custom key bindigs.
-" =======
+" Autosave
+set autowrite
 
-noremap ; :
+" Always show sign column
+set signcolumn=yes
+
+" Use mouse
+set mouse=a
+
+set conceallevel=2
+set concealcursor=vin
+
+" Open new windows at bottom
+set splitbelow
+
+" Limit popup menu height
+set pumheight=20
+
+" ===============================================
+" Custom key bindings.
+" ===============================================
 
 " Use the damn hjkl keys
 noremap <up> <nop>
@@ -134,35 +190,38 @@ nnoremap j gj
 nnoremap k gk
 
 " Easy window navigation
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Clears the search register
-nnoremap <silent> <leader>/ :nohlsearch<CR>
+nnoremap <silent> <leader><leader> :nohlsearch<CR>
 
 " Quick moving by text.
 nnoremap J 5j
 nnoremap K 5k
 
 " Use Shift-H and Shift-L for move to beginning/end
-nnoremap H 0
+nnoremap H ^
 nnoremap L $
 
-"Don't overwrite clipboard on deleting.
-noremap dd "_dd
-noremap D "_D
-noremap d "_d
-noremap X "_X
-noremap x "_x
-xnoremap <leader>p "_dP
+" Don't overwrite clipboard on deleting.
+nnoremap dd "_dd
+nnoremap D "_D
+nnoremap X "_X
+nnoremap x "_x
+xnoremap d "_d
+xnoremap p "_dP
+
+" Cut in Visual mode.
+xnoremap <leader>d d
 
 " Open autocomplete menu by Ctr+Space.
 " inoremap <Nul> <C-n>
 
 " Buffers switch.
 function! ChangeBuf(cmd)
-
     if (&modified && &modifiable)
         execute ":w"
     endif
@@ -171,3 +230,14 @@ endfunction
 nnoremap <silent> <C-o> :call ChangeBuf(":b#")<CR>
 nnoremap <silent> <C-n> :call ChangeBuf(":bn")<CR>
 nnoremap <silent> <C-p> :call ChangeBuf(":bp")<CR>
+
+" Go to definition and declaration.
+nnoremap <silent> gd :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> gD :YcmCompleter GoToDeclaration<CR>
+
+" Quick navigation in Location list.
+nnoremap <silent> en :lnext<CR>
+nnoremap <silent> ep :lprevious<CR>
+nnoremap <silent> eo :lopen<CR>
+nnoremap <silent> ec :lclose<CR>
+
