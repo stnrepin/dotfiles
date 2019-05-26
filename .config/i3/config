@@ -165,6 +165,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+#
 # CUSTOM KEY BINDINGS
 #
 # add workspace switching via tab
@@ -196,3 +197,14 @@ exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
 exec_always --no-startup-id feh --bg-fill "$HOME/wallpaper.jpg"
 
+#
+# COLORS
+#
+# class                 border  backgr. text    indicator child_border
+client.focused          #282c34 #282c34 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #474e5d #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
