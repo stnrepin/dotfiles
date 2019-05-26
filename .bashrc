@@ -16,6 +16,7 @@ alias lsa='ls -apv'
 alias md='mkdir -p'
 alias xclip='xclip -r -selection clipboard'
 alias vim='nvim'
+alias cal='cal -m'
 
 # Aliases for sudo
 #
@@ -31,3 +32,4 @@ alias google-time="curl -I --silent 'https://google.com/' | grep -i '^date:'"
 
 PS1='[\u@\h \W]\$ '
 
+export PATH="$PATH:/home/acesk/.dotnet/tools"
