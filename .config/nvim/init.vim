@@ -34,9 +34,17 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Hightlight
-Plugin 'arakashic/chromatica.nvim'
+Plugin 'bbchung/clighter'
+Plugin 'justinmk/vim-syntax-extra'
+
+" Show function prototype in statusline.
+Plugin 'Shougo/echodoc.vim'
+
+" Quickly change to header.
+Plugin 'vim-scripts/a.vim'
 
 call vundle#end()
+
 filetype indent plugin on
 
 " ===============================================
@@ -64,11 +72,15 @@ let g:vim_markdown_auto_insert_bullets=0
 
 " Autocompletion
 let g:ycm_use_clangd=0
+let g:ycm_semantic_triggers = {'c': ['re![\(\[]', 're![a-zA-Z]', '->', '.']}
 
-" Hightlight
-let g:chromatica#enable_at_startup=1
-let g:chromatica#global_args=['-Iinclude/']
+" Hightlight (see colors below).
+let g:clighter_compile_args=['-Iinclude/']
+let g:ClighterOccurrences=0
+let g:clighter_highlight_mode=2
 
+" EchoDoc
+let g:echodoc#enable_at_startup=1
 
 " ===============================================
 " Plugins key bindings
@@ -79,6 +91,7 @@ let g:UltiSnipsExpandTrigger="<leader>s"
 
 " YouCompleteMe
 nnoremap <silent> eu :YcmDiags<CR>
+nnoremap <leader>p :pc<CR>
 
 " ===============================================
 " Common
@@ -169,11 +182,18 @@ set mouse=a
 set conceallevel=2
 set concealcursor=vin
 
-" Open new windows at bottom
+" Open new windows at bottom and right
 set splitbelow
+set splitright
 
 " Limit popup menu height
 set pumheight=20
+
+" Highlight current line.
+set cursorline
+
+" Don't show preview window
+set completeopt-=preview
 
 " ===============================================
 " Custom key bindings.
@@ -217,9 +237,6 @@ xnoremap p "_dP
 " Cut in Visual mode.
 xnoremap <leader>d d
 
-" Open autocomplete menu by Ctr+Space.
-" inoremap <Nul> <C-n>
-
 " Buffers switch.
 function! ChangeBuf(cmd)
     if (&modified && &modifiable)
@@ -240,4 +257,29 @@ nnoremap <silent> en :lnext<CR>
 nnoremap <silent> ep :lprevious<CR>
 nnoremap <silent> eo :lopen<CR>
 nnoremap <silent> ec :lclose<CR>
+
+" Don't close split on bd.
+command Bd bp\|bd \#
+
+"
+" ===============================================
+" Custom colors.
+" ===============================================
+"
+
+syntax on
+
+" C (clighter)
+hi default link clighterVarDecl None
+hi default link clighterStructDecl Type
+hi default link clighterUnionDecl Type
+hi default link clighterClassDecl Type
+hi default link clighterEnumDecl Type
+hi default link clighterParmDecl None
+hi default link clighterFieldDecl None
+hi default link clighterDeclRefExprCall Identifier
+hi default link clighterMemberRefExprCall Identifier
+hi Identifier ctermfg=LightBlue guifg=#61afef
+hi PreCondit ctermfg=176 guifg=#c678dd
+hi PreProc ctermfg=176 guifg=#c678dd
 
