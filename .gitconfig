@@ -3,5 +3,6 @@
 	name = Stepan Repin
 [core]
 	editor = nvim
+	autocrlf = input
 [credential]
 	helper = store
