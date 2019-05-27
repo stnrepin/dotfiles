@@ -195,6 +195,9 @@ set cursorline
 " Don't show preview window
 set completeopt-=preview
 
+" Make the path to the file always relative.
+autocmd BufReadPost * silent! lcd .
+
 " ===============================================
 " Custom key bindings.
 " ===============================================
