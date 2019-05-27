@@ -90,7 +90,7 @@ let g:echodoc#enable_at_startup=1
 let g:UltiSnipsExpandTrigger="<leader>s"
 
 " YouCompleteMe
-nnoremap <silent> eu :YcmDiags<CR>
+command Eu YcmDiags
 nnoremap <leader>p :pc<CR>
 
 " ===============================================
@@ -253,10 +253,10 @@ nnoremap <silent> gd :YcmCompleter GoToDefinition<CR>
 nnoremap <silent> gD :YcmCompleter GoToDeclaration<CR>
 
 " Quick navigation in Location list.
-nnoremap <silent> en :lnext<CR>
-nnoremap <silent> ep :lprevious<CR>
-nnoremap <silent> eo :lopen<CR>
-nnoremap <silent> ec :lclose<CR>
+nnoremap <silent> <leader>en :lnext<CR>
+nnoremap <silent> <leader>ep :lprevious<CR>
+nnoremap <silent> <leader>eo :lopen<CR>
+nnoremap <silent> <leader>ec :lclose<CR>
 
 " Don't close split on bd.
 command Bd bp\|bd \#
