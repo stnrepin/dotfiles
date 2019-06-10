@@ -78,6 +78,7 @@ let g:ycm_semantic_triggers = {'c': ['re![\(\[]', 're![a-zA-Z]', '->', '.']}
 let g:clighter_compile_args=['-Iinclude/']
 let g:ClighterOccurrences=0
 let g:clighter_highlight_mode=2
+let g:clighter_autostart=0
 
 " EchoDoc
 let g:echodoc#enable_at_startup=1
