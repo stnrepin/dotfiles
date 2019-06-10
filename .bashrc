@@ -33,3 +33,7 @@ alias google-time="curl -I --silent 'https://google.com/' | grep -i '^date:'"
 PS1='[\u@\h \W]\$ '
 
 export PATH="$PATH:/home/acesk/.dotnet/tools"
+
+# Use fish as default shell
+fish
+
