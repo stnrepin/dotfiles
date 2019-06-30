@@ -1,0 +1,127 @@
+{
+    "terminal.integrated.rendererType": "dom",
+    "explorer.confirmDelete": false,
+
+    "editor.fontSize": 16,
+    "editor.fontFamily": "Hack, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.tabCompletion": "on",
+    "editor.useTabStops": false,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.minimap.enabled": false,
+    "window.titleBarStyle": "native",
+    "window.menuBarVisibility": "hidden",
+    "window.enableMenuBarMnemonics": false,
+    "workbench.editor.labelFormat": "medium",
+    "workbench.list.horizontalScrolling": true,
+    "workbench.settings.editor": "json",
+    "workbench.settings.openDefaultKeybindings": true,
+    "workbench.settings.openDefaultSettings": true,
+    "workbench.statusBar.feedback.visible": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideStatusBar": false,
+
+    //
+    // cSpell
+    //
+    "cSpell.allowCompoundWords": true,
+    "cSpell.language": "en,ru",
+    "cSpell.userWords": [
+        "Guui",
+        "bigg",
+        "encapsulation",
+        "infty",
+        "kosatkin",
+        "kosin",
+        "multline",
+        "nabla",
+        "petrov",
+        "sidorov",
+        "struct",
+        "vasilev",
+        "векторно",
+        "внешн",
+        "выражениe",
+        "дипольно",
+        "лоренца",
+        "лоскутников",
+        "лэти",
+        "поляризовываться",
+        "савара",
+        "слож"
+    ],
+
+    //
+    // Dotnet
+    //
+    "dotnet-test-explorer.autoExpandTree": true,
+
+    //
+    // Markdown
+    //
+    "markdownlint.config": {
+        "MD013": false,
+        "MD025": false,
+    },
+
+    //
+    // Vim
+    //
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/bin/nvim",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [ "J" ],
+            "after": [ "5", "j" ]
+        },
+        {
+            "before": [ "K" ],
+            "after": [ "5", "k" ]
+        },
+        {
+            "before": [ "H" ],
+            "after": [ "^" ]
+        },
+        {
+            "before": [ "L" ],
+            "after": [ "$" ]
+        },
+        {
+            "before": [ "<C-h>" ],
+            "after": [ "<C-w>", "h" ]
+        },
+        {
+            "before": [ "<C-j>" ],
+            "after": [ "<C-w>", "j" ]
+        },
+        {
+            "before": [ "<C-k>" ],
+            "after": [ "<C-w>", "k" ]
+        },
+        {
+            "before": [ "<C-l>" ],
+            "after": [ "<C-w>", "l" ]
+        },
+        {
+            "before": [ "<C-n>" ],
+            "commands": [ ":tabn" ]
+        },
+        {
+            "before": [ "<C-b>" ],
+            "commands": [ ":tabp" ]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [ "p" ],
+            "after": [ "p", "g", "v", "y" ]
+        },
+        {
+            "before": [ ">" ],
+            "commands": [ "editor.action.indentLines" ]
+        },
+        {
+            "before": [ "<" ],
+            "commands": [ "editor.action.outdentLines" ]
+        },
+    ],
+}
