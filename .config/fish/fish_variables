@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export _JAVA_OPTIONS:\x2dDawt\x2euseSystemAAFontSettings\x3don
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
@@ -22,6 +23,7 @@ SETUVAR fish_color_quote:999900
 SETUVAR fish_color_redirection:00afff
 SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_function_path:/home/acesk/\x2econfig/fish/functions/aliases/\x1e/home/acesk/\x2econfig/fish/functions/aliases/\x1e/home/acesk/\x2econfig/fish/functions\x1e/etc/fish/functions\x1e/usr/share/fish/vendor_functions\x2ed\x1e/usr/share/fish/functions
