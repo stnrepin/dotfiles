@@ -8,6 +8,7 @@
     "editor.useTabStops": false,
     "editor.wordWrap": "wordWrapColumn",
     "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
     "window.titleBarStyle": "native",
     "window.menuBarVisibility": "hidden",
     "window.enableMenuBarMnemonics": false,
@@ -19,6 +20,11 @@
     "workbench.statusBar.feedback.visible": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.hideStatusBar": false,
+
+    //
+    // Python
+    //
+    "python.linting.pylintPath": "env/bin/pylint",
 
     //
     // cSpell
@@ -110,6 +116,28 @@
             "commands": [ ":tabp" ]
         },
     ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        }
+    ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": [ "p" ],
@@ -124,4 +152,6 @@
             "commands": [ "editor.action.outdentLines" ]
         },
     ],
+    "window.zoomLevel": 0,
+    "explorer.confirmDragAndDrop": false,
 }
