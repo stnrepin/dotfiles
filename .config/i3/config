@@ -180,6 +180,10 @@ bindsym $mod+F12 exec pamixer --toggle-mute
 # PrintScreen
 bindsym Print exec flameshot gui
 
+# Translation
+bindsym $mod+t exec notify-send "Translation: " $(xclip -selection primary -o | trans -b :ru)
+bindsym $mod+Shift+t exec notify-send "Translation: " $(xclip -selection clipboard -o | trans -b :ru)
+
 # GAPS AND BORDERS
 #
 gaps inner 10
