@@ -72,6 +72,7 @@
     //
     // Vim
     //
+    "vim.textwidth": 80,
     "vim.enableNeovim": true,
     "vim.neovimPath": "/usr/bin/nvim",
     "vim.normalModeKeyBindings": [
@@ -90,22 +91,6 @@
         {
             "before": [ "L" ],
             "after": [ "$" ]
-        },
-        {
-            "before": [ "<C-h>" ],
-            "after": [ "<C-w>", "h" ]
-        },
-        {
-            "before": [ "<C-j>" ],
-            "after": [ "<C-w>", "j" ]
-        },
-        {
-            "before": [ "<C-k>" ],
-            "after": [ "<C-w>", "k" ]
-        },
-        {
-            "before": [ "<C-l>" ],
-            "after": [ "<C-w>", "l" ]
         },
         {
             "before": [ "<C-n>" ],
@@ -136,7 +121,23 @@
         {
             "before": ["j"],
             "after": ["g", "j"]
-        }
+        },
+        {
+            "before": [ "<C-h>" ],
+            "after": [ "<C-w>", "h" ]
+        },
+        {
+            "before": [ "<C-j>" ],
+            "after": [ "<C-w>", "j" ]
+        },
+        {
+            "before": [ "<C-k>" ],
+            "after": [ "<C-w>", "k" ]
+        },
+        {
+            "before": [ "<C-l>" ],
+            "after": [ "<C-w>", "l" ]
+        },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
@@ -152,6 +153,6 @@
             "commands": [ "editor.action.outdentLines" ]
         },
     ],
-    "window.zoomLevel": 0,
-    "explorer.confirmDragAndDrop": false,
+    "vim.autoSwitchInputMethod.enable": true,
+    "vim.autoSwitchInputMethod.defaultIM": "en:"
 }
