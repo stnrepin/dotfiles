@@ -169,9 +169,6 @@ set laststatus=0
 " Hide INSERT status.
 set noshowmode
 
-" Use system clipdoard 
-set clipboard=unnamedplus
-
 " Show matching brackets.
 set showmatch
 
@@ -233,17 +230,6 @@ nnoremap K 5k
 " Use Shift-H and Shift-L for move to beginning/end
 nnoremap H ^
 nnoremap L $
-
-" Don't overwrite clipboard on deleting.
-nnoremap dd "_dd
-nnoremap D "_D
-nnoremap X "_X
-nnoremap x "_x
-xnoremap d "_d
-xnoremap p "_dP
-
-" Cut in Visual mode.
-xnoremap <leader>d d
 
 " Buffers switch.
 function! ChangeBuf(cmd)
