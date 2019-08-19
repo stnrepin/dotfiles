@@ -85,7 +85,7 @@ let g:vim_markdown_conceal_code_blocks = 0
 let g:clighter_compile_args=['-Iinclude/']
 let g:ClighterOccurrences=0
 let g:clighter_highlight_mode=2
-let g:clighter_autostart=1
+let g:clighter_autostart=0
 
 " ===============================================
 " Plugins key bindings
@@ -254,26 +254,4 @@ nnoremap <silent> <leader>ec :lclose<CR>
 
 " Don't close split on bd.
 command Bd bp\|bd \#
-
-"
-" ===============================================
-" Custom colors.
-" ===============================================
-"
-
-syntax on
-
-" C (clighter)
-hi default link clighterVarDecl None
-hi default link clighterStructDecl Type
-hi default link clighterUnionDecl Type
-hi default link clighterClassDecl Type
-hi default link clighterEnumDecl Type
-hi default link clighterParmDecl None
-hi default link clighterFieldDecl None
-hi default link clighterDeclRefExprCall Identifier
-hi default link clighterMemberRefExprCall Identifier
-hi Identifier ctermfg=LightBlue guifg=#61afef
-hi PreCondit ctermfg=176 guifg=#c678dd
-hi PreProc ctermfg=176 guifg=#c678dd
 
