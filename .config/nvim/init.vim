@@ -10,40 +10,44 @@ filetype off
 " Plugins
 " ===============================================
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " Color scheme
-Bundle 'sonph/onehalf', {'rtp': 'vim/'}
-
-" Vundle.
-Plugin 'VundleVim/Vundle.vim'
-
-" Markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 " Keyboard switcher.
-Plugin 'lyokha/vim-xkbswitch'
+Plug 'lyokha/vim-xkbswitch'
 
 " Autocompletion
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'c++']}
 
 " Snippets
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Hightlight
-Plugin 'bbchung/clighter'
-Plugin 'justinmk/vim-syntax-extra'
+Plug 'justinmk/vim-syntax-extra'
 
 " Show function prototype in statusline.
-Plugin 'Shougo/echodoc.vim'
+Plug 'Shougo/echodoc.vim'
 
 " Quickly change to header.
-Plugin 'vim-scripts/a.vim'
+Plug 'vim-scripts/a.vim'
 
-call vundle#end()
+" Syntax checking
+Plug 'vim-syntastic/syntastic'
+
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+" C
+Plug 'bbchung/clighter', { 'for': ['c', 'c++']}
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
+call plug#end()
 
 filetype indent plugin on
 
@@ -65,6 +69,10 @@ let g:XkbSwitchEnabled=1
 let g:XkbSwitchLib='/usr/lib/libxkbswitch.so'
 let g:XkbSwitchIMappings=['ru']
 
+" YouCompleteMe
+let g:ycm_use_clangd=0
+let g:ycm_semantic_triggers = {'c': ['re![\(\[]', 're![a-zA-Z]', '->', '.']}
+
 " Markdown
 let g:vim_markdown_math=1
 let g:vim_markdown_strikethrough=1
@@ -73,18 +81,11 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_conceal=0
 let g:vim_markdown_conceal_code_blocks = 0
 
-" Autocompletion
-let g:ycm_use_clangd=0
-let g:ycm_semantic_triggers = {'c': ['re![\(\[]', 're![a-zA-Z]', '->', '.']}
-
-" Hightlight (see colors below).
+" C
 let g:clighter_compile_args=['-Iinclude/']
 let g:ClighterOccurrences=0
 let g:clighter_highlight_mode=2
-let g:clighter_autostart=0
-
-" EchoDoc
-let g:echodoc#enable_at_startup=1
+let g:clighter_autostart=1
 
 " ===============================================
 " Plugins key bindings
