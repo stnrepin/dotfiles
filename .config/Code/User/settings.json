@@ -154,5 +154,7 @@
         },
     ],
     "vim.autoSwitchInputMethod.enable": true,
-    "vim.autoSwitchInputMethod.defaultIM": "en:"
+    "vim.autoSwitchInputMethod.defaultIM": "us",
+    "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/xkb-switch",
+    "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/xkb-switch -s {im}"
 }
