@@ -31,30 +31,6 @@
     //
     "cSpell.allowCompoundWords": true,
     "cSpell.language": "en,ru",
-    "cSpell.userWords": [
-        "Guui",
-        "bigg",
-        "encapsulation",
-        "infty",
-        "kosatkin",
-        "kosin",
-        "multline",
-        "nabla",
-        "petrov",
-        "sidorov",
-        "struct",
-        "vasilev",
-        "векторно",
-        "внешн",
-        "выражениe",
-        "дипольно",
-        "лоренца",
-        "лоскутников",
-        "лэти",
-        "поляризовываться",
-        "савара",
-        "слож"
-    ],
 
     //
     // Dotnet
