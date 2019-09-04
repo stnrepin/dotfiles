@@ -21,7 +21,7 @@ font-2 = Hack:size=10;2
 font-3 = "Font Awesome 5 Free:size=13;4"
 
 modules-left = i3
-modules-right = pulseaudio wireless-network battery keyboard date
+modules-right = pulseaudio keyboard date time
 
 [module/i3]
 type = internal/i3
@@ -61,63 +61,9 @@ sink = alsa_output.pci-0000_00_1b.0.analog-stereo
 use-ui-max = false
 interval = 5
 
-format-volume = <ramp-volume> <label-volume>
-label-muted =   muted
+format-volume = <label-volume>
+label-muted = muted
 label-muted-foreground = #66
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-
-[module/wireless-network]
-type = internal/network
-interface = wlan0
-interval = 3.0
-ping-interval = 10
-
-format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
-label-disconnected =    not connected
-label-disconnected-foreground = #66
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-
-animation-packetloss-0 = 
-animation-packetloss-0-foreground = #ffa64c
-animation-packetloss-1 = 
-animation-packetloss-1-foreground = ${bar/top.foreground}
-animation-packetloss-framerate = 500
-
-[module/wired-network]
-internal/network
-interface = eth0
-interval = 3.0
-
-label-connected =    %{T3}%local_ip%%{T-}
-label-disconnected-foreground = #66
-
-[module/battery]
-type = internal/battery
-full-at = 98
-battery = BAT1
-adapter = ACAD
-
-format-charging =  <label-charging>
-format-discharging =  <label-discharging>
-format-full =  <label-full>
-
-bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-bar-capacity-fill = █
-bar-capacity-fill-font = 2
-bar-capacity-fill-foreground = #ddffffff
-bar-capacity-empty = █
-bar-capacity-empty-font = 2
-bar-capacity-empty-foreground = #44ffffff
 
 [module/keyboard]
 type = custom/script
@@ -131,6 +77,11 @@ click-left = xkb-switch -n
 
 [module/date]
 type = internal/date
-interval = 2
-date =   %%{F#fff}%d-%m-%Y%%{F-}  %%{F#fff}%H:%M%%{F-}
+interval = 5
+date = %%{F#fff}%d-%m-%Y%%{F-}
+
+[module/time]
+type = internal/date
+interval = 5
+date = %%{F#fff}%H:%M%%{F-}
 
