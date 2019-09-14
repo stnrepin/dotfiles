@@ -18,9 +18,6 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " Keyboard switcher.
 Plug 'lyokha/vim-xkbswitch'
 
-" Autocompletion
-Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'c++']}
-
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -28,24 +25,9 @@ Plug 'honza/vim-snippets'
 " Hightlight
 Plug 'justinmk/vim-syntax-extra'
 
-" Show function prototype in statusline.
-Plug 'Shougo/echodoc.vim'
-
-" Quickly change to header.
-Plug 'vim-scripts/a.vim'
-
-" Syntax checking
-Plug 'vim-syntastic/syntastic'
-
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
-" C
-Plug 'bbchung/clighter', { 'for': ['c', 'c++']}
-
-" Rust
-Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -69,10 +51,6 @@ let g:XkbSwitchEnabled=1
 let g:XkbSwitchLib='/usr/lib/libxkbswitch.so'
 let g:XkbSwitchIMappings=['ru']
 
-" YouCompleteMe
-let g:ycm_use_clangd=0
-let g:ycm_semantic_triggers = {'c': ['re![\(\[]', 're![a-zA-Z]', '->', '.']}
-
 " Markdown
 let g:vim_markdown_math=1
 let g:vim_markdown_strikethrough=1
@@ -81,22 +59,12 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_conceal=0
 let g:vim_markdown_conceal_code_blocks = 0
 
-" C
-let g:clighter_compile_args=['-Iinclude/']
-let g:ClighterOccurrences=0
-let g:clighter_highlight_mode=2
-let g:clighter_autostart=0
-
 " ===============================================
 " Plugins key bindings
 " ===============================================
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<leader>s"
-
-" YouCompleteMe
-command Eu YcmDiags
-nnoremap <leader>p :pc<CR>
 
 " ===============================================
 " Common
@@ -241,16 +209,6 @@ endfunction
 nnoremap <silent> <C-o> :call ChangeBuf(":b#")<CR>
 nnoremap <silent> <C-n> :call ChangeBuf(":bn")<CR>
 nnoremap <silent> <C-p> :call ChangeBuf(":bp")<CR>
-
-" Go to definition and declaration.
-nnoremap <silent> gd :YcmCompleter GoToDefinition<CR>
-nnoremap <silent> gD :YcmCompleter GoToDeclaration<CR>
-
-" Quick navigation in Location list.
-nnoremap <silent> <leader>en :lnext<CR>
-nnoremap <silent> <leader>ep :lprevious<CR>
-nnoremap <silent> <leader>eo :lopen<CR>
-nnoremap <silent> <leader>ec :lclose<CR>
 
 " Don't close split on bd.
 command Bd bp\|bd \#
