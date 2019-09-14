@@ -22,7 +22,7 @@ Plug 'lyokha/vim-xkbswitch'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-" Hightlight
+" Highlight
 Plug 'justinmk/vim-syntax-extra'
 
 " Markdown
@@ -44,7 +44,6 @@ if exists('+termguicolors')
   set termguicolors
 endif
 colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
 
 " Keyboard switcher.
 let g:XkbSwitchEnabled=1
@@ -87,7 +86,7 @@ set autoread
 set ttyfast
 set timeout timeoutlen=1000 ttimeoutlen=50
 
-" Set width to 79 colums.
+" Set width to 79 columns.
 set textwidth=79
 
 " Don't beep.
@@ -113,7 +112,7 @@ set copyindent
 
 " Don't close buffers.
 set hidden
-" Use already opened files from the quikfix window instead of opening new
+" Use already opened files from the quickfix window instead of opening new
 " buffers
 set switchbuf=useopen
 
@@ -196,9 +195,8 @@ nnoremap <silent> <leader><leader> :nohlsearch<CR>
 nnoremap J 5j
 nnoremap K 5k
 
-" Use Shift-H and Shift-L for move to beginning/end
-nnoremap H ^
-nnoremap L $
+" Concatenate the current line with below
+nnoremap [j J
 
 " Buffers switch.
 function! ChangeBuf(cmd)
@@ -212,5 +210,5 @@ nnoremap <silent> <C-n> :call ChangeBuf(":bn")<CR>
 nnoremap <silent> <C-p> :call ChangeBuf(":bp")<CR>
 
 " Don't close split on bd.
-command Bd bp\|bd \#
+command! Bd bp\|bd \#
 
