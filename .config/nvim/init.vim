@@ -149,9 +149,6 @@ set signcolumn=yes
 " Use mouse
 set mouse=a
 
-set conceallevel=2
-set concealcursor=vin
-
 " Open new windows at bottom and right
 set splitbelow
 set splitright
