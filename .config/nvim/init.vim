@@ -66,7 +66,7 @@ let g:vim_markdown_conceal_code_blocks = 0
 " ===============================================
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<leader>s"
+let g:UltiSnipsExpandTrigger="<S-Tab>"
 
 " Easymotion
 map . <Plug>(easymotion-prefix)
