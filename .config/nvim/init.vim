@@ -25,6 +25,9 @@ Plug 'honza/vim-snippets'
 " Highlight
 Plug 'justinmk/vim-syntax-extra'
 
+" Easymotion
+Plug 'easymotion/vim-easymotion'
+
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -64,6 +67,9 @@ let g:vim_markdown_conceal_code_blocks = 0
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<leader>s"
+
+" Easymotion
+map . <Plug>(easymotion-prefix)
 
 " ===============================================
 " Common
