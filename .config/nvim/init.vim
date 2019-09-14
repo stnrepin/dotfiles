@@ -165,6 +165,10 @@ set completeopt-=preview
 " Make the path to the file always relative.
 autocmd BufReadPost * silent! lcd .
 
+" Enable spelling
+set spell
+set spelllang=en,ru
+
 " ===============================================
 " Custom key bindings.
 " ===============================================
