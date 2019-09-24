@@ -3,7 +3,7 @@
     "explorer.confirmDelete": false,
 
     "editor.fontSize": 16,
-    "editor.fontFamily": "Hack, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "Hack, Dejavu Sans Mono",
     "editor.tabCompletion": "on",
     "editor.useTabStops": false,
     "editor.minimap.enabled": false,
@@ -37,11 +37,23 @@
     "dotnet-test-explorer.autoExpandTree": true,
 
     //
+    // Rust
+    //
+    "rust.rustup": {
+        "toolchain": "nightly-x86_64-unknown-linux-gnu",
+        "nightlyToolchain": "nightly-x86_64-unknown-linux-gnu"
+    },
+    "rust.rls": {
+        "useRustfmt": true
+    },
+
+    //
     // Markdown
     //
     "markdownlint.config": {
         "MD013": false,
         "MD025": false,
+        "MD030": false,
     },
 
     //
@@ -74,6 +86,10 @@
         {
             "before": [ "<C-b>" ],
             "commands": [ ":tabp" ]
+        },
+        {
+            "before": [ "[", "j"],
+            "after": [ "J"]
         },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -113,6 +129,10 @@
             "before": [ "<C-l>" ],
             "after": [ "<C-w>", "l" ]
         },
+        {
+            "before": [ "<Space>" ],
+            "after": [ "<leader>", "<leader>" ]
+        }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
@@ -131,5 +151,6 @@
     "vim.autoSwitchInputMethod.enable": true,
     "vim.autoSwitchInputMethod.defaultIM": "us",
     "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/xkb-switch",
-    "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/xkb-switch -s {im}"
+    "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/xkb-switch -s {im}",
+    "vim.easymotion": true,
 }
