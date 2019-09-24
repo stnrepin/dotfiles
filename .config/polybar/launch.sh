@@ -9,7 +9,8 @@ for pid in $(pgrep 'polybar'); do
 done
 
 # Launch polybar
-polybar default-bar &
+polybar default-mon1 &
+polybar default-mon2 &
 
 echo "Polybar launched... Ok"
 
