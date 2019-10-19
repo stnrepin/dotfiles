@@ -31,6 +31,7 @@ Plug 'easymotion/vim-easymotion'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 call plug#end()
 
@@ -53,6 +54,12 @@ let g:XkbSwitchEnabled=1
 let g:XkbSwitchLib='/usr/lib/libxkbswitch.so'
 let g:XkbSwitchIMappings=['ru']
 
+" UltiSnips
+let g:UltiSnipsSnippetDirectories=[
+    \ $HOME.'/.vim/UltiSnips',
+    \ $HOME.'/.vim/plugged/vim-snippets/UltiSnips'
+\ ]
+
 " Markdown
 let g:vim_markdown_math=1
 let g:vim_markdown_strikethrough=1
@@ -60,16 +67,21 @@ let g:vim_markdown_auto_insert_bullets=0
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_conceal=0
 let g:vim_markdown_conceal_code_blocks = 0
+let g:instant_markdown_mathjax=1
+let g:instant_markdown_autostart=0
+let g:vim_markdown_frontmatter=1
 
 " ===============================================
 " Plugins key bindings
 " ===============================================
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<S-Tab>"
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
 " Easymotion
-map . <Plug>(easymotion-prefix)
+map <Space> <Plug>(easymotion-prefix)
 
 " ===============================================
 " Common
