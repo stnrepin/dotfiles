@@ -184,8 +184,10 @@ bindsym Print exec flameshot gui
 bindsym $mod+t exec notify-send "Translation: " $(xclip -selection primary -o | trans -b :ru)
 bindsym $mod+Shift+t exec notify-send "Translation: " $(xclip -selection clipboard -o | trans -b :ru)
 
-# GAPS AND BORDERS
+# GAPS, BORDERS AND WINDOWS
 #
+workspace 6 output DVI-0
+
 gaps inner 10
 gaps outer 0
 
