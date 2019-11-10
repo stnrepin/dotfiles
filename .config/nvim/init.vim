@@ -24,6 +24,7 @@ Plug 'honza/vim-snippets'
 
 " Highlight
 Plug 'justinmk/vim-syntax-extra'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Easymotion
 Plug 'easymotion/vim-easymotion'
@@ -67,9 +68,10 @@ let g:vim_markdown_auto_insert_bullets=0
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_conceal=0
 let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_frontmatter=1
 let g:instant_markdown_mathjax=1
 let g:instant_markdown_autostart=0
-let g:vim_markdown_frontmatter=1
+let g:instant_markdown_browser="electron"
 
 " ===============================================
 " Plugins key bindings
