@@ -7,6 +7,7 @@ xrandr --output DVI-0 --auto --right-of HDMI-0
 
 # Keyboard settings
 xset r rate 150 20
+xmodmap ~/.Xmodmap
 
 exec i3
 
