@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Use multi monitor setup
+xrandr --output DVI-0 --auto --right-of HDMI-0
+
