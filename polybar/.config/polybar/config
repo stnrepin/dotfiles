@@ -1,10 +1,15 @@
-[bar/default-mon1]
+[bar/default-desktop1-mon1]
+inherit = bar/default
 monitor = ${env:MONITOR:HDMI-0}
-inherit = bar/default
 
-[bar/default-mon2]
-monitor = ${env:MONITOR:DVI-0}
+[bar/default-desktop1-mon2]
 inherit = bar/default
+monitor = ${env:MONITOR:DVI-0}
+
+[bar/default-notebook1]
+inherit = bar/default
+dpi = 144
+background = #3a3645
 
 [bar/default]
 width = 100%
@@ -28,7 +33,7 @@ font-2 = Hack:size=10;2
 font-3 = "Font Awesome 5 Free:size=13;4"
 
 modules-left = i3
-modules-right = pulseaudio keyboard date time
+modules-right = pulseaudio battery keyboard date time
 
 [module/i3]
 type = internal/i3
@@ -71,6 +76,12 @@ interval = 5
 format-volume = <label-volume>
 label-muted = muted
 label-muted-foreground = #66
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+poll-interval = 0
 
 [module/keyboard]
 type = custom/script

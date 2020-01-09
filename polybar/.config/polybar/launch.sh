@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CUR_CONFIG_DIR=~/.config/polybar/
+
 # Terminate already running bar instances
 killall -q polybar
 
@@ -9,8 +11,7 @@ for pid in $(pgrep 'polybar'); do
 done
 
 # Launch polybar
-polybar default-mon1 &
-polybar default-mon2 &
+xargs -n 1 -I{} -d '\n' polybar {} < $CUR_CONFIG_DIR/bars.local.txt &
 
 echo "Polybar launched... Ok"
 
