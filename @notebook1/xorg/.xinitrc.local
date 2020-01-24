@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Lock screen
+xss-lock -- physlock -s &
+libinput-gestures-setup start
+
