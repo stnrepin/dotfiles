@@ -188,6 +188,9 @@ autocmd BufReadPost * silent! lcd .
 set spell
 set spelllang=en,ru
 
+" Relative line numbering
+set rnu
+
 " ===============================================
 " Custom key bindings.
 " ===============================================
