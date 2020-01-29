@@ -27,10 +27,10 @@ alias wifi-menu='sudo wifi-menu'
 # New commands
 #
 alias lsa='ls -apv'
-alias cd..='cd'
-alias r=ranger
-alias usb-m='udiskctl mount -b'
-alias usb-u='udiskctl unmount -b'
+alias cd..='cd ..'
+alias r='ranger'
+alias usb-m='udisksctl mount -b'
+alias usb-u='udisksctl unmount -b'
 
 # Overrides
 #
