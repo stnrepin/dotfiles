@@ -11,7 +11,9 @@ for pid in $(pgrep 'polybar'); do
 done
 
 # Launch polybar
-xargs -n 1 -I{} -d '\n' polybar {} < $CUR_CONFIG_DIR/bars.local.txt &
+while read bar_name; do
+    polybar "$bar_name" &
+done < $CUR_CONFIG_DIR/bars.local.txt
 
 echo "Polybar launched... Ok"
 
