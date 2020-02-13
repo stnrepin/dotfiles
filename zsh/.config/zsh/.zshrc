@@ -14,6 +14,12 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 export EDITOR='nvim'
 
 ##
+## Key bindings
+##
+bindkey "^K" history-beginning-search-backward
+bindkey "^J" history-beginning-search-forward
+
+##
 ## ALIASES
 ##
 
