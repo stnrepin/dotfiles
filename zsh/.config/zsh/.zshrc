@@ -38,6 +38,7 @@ alias r='ranger'
 alias usb-m='udisksctl mount -b'
 alias usb-u='udisksctl unmount -b'
 alias py='python'
+alias za='zathura'
 
 # Overrides
 #
