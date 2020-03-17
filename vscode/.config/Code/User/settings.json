@@ -59,6 +59,7 @@
     //
     // Vim
     //
+    "vim.leader": "<space>",
     "vim.textwidth": 80,
     "vim.enableNeovim": true,
     "vim.neovimPath": "/usr/bin/nvim",
