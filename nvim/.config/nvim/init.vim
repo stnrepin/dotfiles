@@ -24,15 +24,18 @@ Plug 'honza/vim-snippets'
 
 " Highlight
 Plug 'justinmk/vim-syntax-extra'
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['cpp', 'c']}
 
 " Easymotion
 Plug 'easymotion/vim-easymotion'
 
 " Markdown
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular', {'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', {'for': 'markdown' }
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
+" Center text in Vim
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -73,6 +76,9 @@ let g:instant_markdown_mathjax=1
 let g:instant_markdown_autostart=0
 let g:instant_markdown_browser="electron"
 
+" VimRoom
+highlight EndOfBuffer ctermfg=bg ctermbg=bg
+
 " ===============================================
 " Plugins key bindings
 " ===============================================
@@ -90,7 +96,7 @@ map <Space> <Plug>(easymotion-prefix)
 " ===============================================
 
 " Hide launch screen.
-set shortmess+=I 
+set shortmess+=I
 
 " Default encoding.
 set termencoding=utf-8
@@ -112,7 +118,7 @@ set textwidth=79
 " Don't beep.
 set visualbell
 set noerrorbells
-set vb t_vb= 
+set vb t_vb=
 
 " Set the search scan so that it ignores case when the search is all lower
 " case but recognizes uppercase if it's specified.
@@ -137,7 +143,7 @@ set hidden
 set switchbuf=useopen
 
 " Keep lines off the edges of the screen when scrolling.
-set scrolloff=5
+set scrolloff=10
 
 " Display some characters.
 set list
@@ -160,7 +166,7 @@ set noshowmode
 set showmatch
 
 " Autosave
-set autowrite
+"set autowrite
 
 " Always show sign column
 set signcolumn=yes
