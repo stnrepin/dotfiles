@@ -227,6 +227,9 @@ nnoremap K 5k
 " Concatenate the current line with below
 nnoremap [j J
 
+" Map ^
+nnoremap - ^
+
 " Buffers switch.
 function! ChangeBuf(cmd)
     if (&modified && &modifiable)
