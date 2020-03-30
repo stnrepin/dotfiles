@@ -37,6 +37,9 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 " Center text in Vim
 Plug 'junegunn/goyo.vim'
 
+" Terminal in Vim
+Plug 'kassio/neoterm'
+
 call plug#end()
 
 filetype indent plugin on
@@ -78,6 +81,10 @@ let g:instant_markdown_browser="electron"
 
 " VimRoom
 highlight EndOfBuffer ctermfg=bg ctermbg=bg
+
+" Neoterm
+let g:neoterm_default_mod='edit'
+autocmd TermOpen *neoterm* setlocal nospell
 
 " ===============================================
 " Plugins key bindings
