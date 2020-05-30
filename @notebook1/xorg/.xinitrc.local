@@ -2,5 +2,10 @@
 
 # Lock screen
 xss-lock -- physlock -s &
+
+# Touchpad Gestures
 libinput-gestures-setup start
+
+# Composition
+picom -b
 
