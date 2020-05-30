@@ -34,11 +34,17 @@ Plug 'godlygeek/tabular', {'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', {'for': 'markdown' }
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
+" Latex
+Plug 'lervag/vimtex', {'for': 'latex' }
+
 " Center text in Vim
 Plug 'junegunn/goyo.vim'
 
 " Terminal in Vim
 Plug 'kassio/neoterm'
+
+" Surround
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -79,8 +85,10 @@ let g:instant_markdown_mathjax=1
 let g:instant_markdown_autostart=0
 let g:instant_markdown_browser="electron"
 
-" VimRoom
-highlight EndOfBuffer ctermfg=bg ctermbg=bg
+" Latex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
 
 " Neoterm
 let g:neoterm_default_mod='edit'
@@ -250,4 +258,7 @@ nnoremap <silent> <C-p> :call ChangeBuf(":bp")<CR>
 
 " Don't close split on bd.
 command! Bd bp\|bd \#
+
+" Fix last error.
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
