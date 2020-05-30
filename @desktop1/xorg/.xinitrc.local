@@ -3,3 +3,6 @@
 # Use multi monitor setup
 xrandr --output DVI-0 --auto --right-of HDMI-0
 
+# Disable Backspace
+xmodmap -e 'keycode 22 = '
+
