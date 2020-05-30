@@ -9,7 +9,7 @@ test -f ~/.xinitrc.local && source ~/.xinitrc.local
 xset r rate 150 20
 setxkbmap -option caps:backspace
 setxkbmap -option shift:both_capslock
-xmodmap ~/.Xmodmap
+xset r 66
 
 exec i3
 
