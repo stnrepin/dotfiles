@@ -46,6 +46,9 @@ Plug 'kassio/neoterm'
 " Surround
 Plug 'tpope/vim-surround'
 
+" Vim GPG
+Plug 'jamessan/vim-gnupg'
+
 call plug#end()
 
 filetype indent plugin on
