@@ -189,6 +189,9 @@ bindsym XF86AudioLowerVolume exec pamixer --decrease 5
 bindsym XF86AudioRaiseVolume exec pamixer --increase 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86AudioPlay exec cmus-remote --pause
+bindsym XF86AudioPrev exec cmus-remote --prev
+bindsym XF86AudioNext exec cmus-remote --next
 
 # GAPS, BORDERS AND WINDOWS
 #
