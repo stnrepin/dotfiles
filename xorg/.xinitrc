@@ -7,8 +7,7 @@ test -f ~/.xinitrc.local && source ~/.xinitrc.local
 
 # Keyboard settings
 xset r rate 150 20
-setxkbmap -option caps:backspace
-setxkbmap -option shift:both_capslock
+setxkbmap -layout us,ru -option shift:both_capslock -option caps:backspace
 xset r 66
 
 exec i3
