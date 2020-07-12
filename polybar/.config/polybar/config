@@ -101,7 +101,7 @@ click-left = xkb-switch -n
 [module/date]
 type = internal/date
 interval = 5
-date = %%{F#fff}%d-%m-%Y%%{F-}
+date = %%{F#fff}%Y-%m-%d%%{F-}
 
 [module/time]
 type = internal/date
