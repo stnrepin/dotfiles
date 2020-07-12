@@ -193,6 +193,10 @@ bindsym XF86AudioPlay exec cmus-remote --pause
 bindsym XF86AudioPrev exec cmus-remote --prev
 bindsym XF86AudioNext exec cmus-remote --next
 
+# Scripts
+#
+bindsym $mod+t exec --no-startup-id sh ~/.config/i3/popup-translate.sh
+
 # GAPS, BORDERS AND WINDOWS
 #
 workspace 6 output DVI-0
@@ -210,6 +214,7 @@ for_window [window_role="(?i)GtkFileChooserDialog"] move absolute position absol
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill "$HOME/wallpaper.jpg"
+exec_always --no-startup-id dunst
 
 #
 # COLORS
