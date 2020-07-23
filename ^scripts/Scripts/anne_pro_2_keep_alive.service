@@ -1,0 +1,11 @@
+[Unit]
+Description=Run script to prevent AnnePro 2 suspending
+Wants=multi-user.target
+
+[Service]
+Type=forking
+ExecStart=/home/acesk/Scripts/anne_pro_2_keep_alive.py
+
+[Install]
+WantedBy=multi-user.target
+
