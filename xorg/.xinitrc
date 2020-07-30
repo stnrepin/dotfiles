@@ -10,8 +10,7 @@ xset r rate 150 20
 xset r 66
 setxkbmap -layout us,ru \
     -option shift:both_capslock \
-    -option caps:backspace \
-    -option grp:alt_shift_toggle
+    -option grp:shift_caps_switch
 
 exec i3
 
