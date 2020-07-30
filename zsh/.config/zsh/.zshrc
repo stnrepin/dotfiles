@@ -42,6 +42,7 @@ alias usb-m='udisksctl mount -b'
 alias usb-u='udisksctl unmount -b'
 alias py='python'
 alias za='zathura'
+function rr() { ranger --cmd="enter_bookmark $1" }
 
 # Overrides
 #
@@ -51,4 +52,19 @@ alias ls='ls --color=auto --group-directories-first'
 alias mkdir='mkdir -p'
 alias xclip='xclip -r -selection clipboard'
 alias cal='cal -m -3'
+
+# Git
+#
+alias gcl='git clone'
+alias gf='git fetch'
+alias ga='git add'
+alias gaa='git add --all'
+alias gs='git status -sb'
+alias gc='git commit -v'
+alias gp='got push'
+alias gr='git restore'
+alias grs='git restore --staged'
+alias gl='git log'
+alias gch='git checkout'
+alias gb='git branch'
 
