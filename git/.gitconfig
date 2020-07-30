@@ -7,3 +7,5 @@
 	quotePath = false
 [credential]
 	helper = store
+[pull]
+	ff = only
