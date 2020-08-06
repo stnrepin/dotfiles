@@ -42,6 +42,7 @@ alias usb-u='udisksctl unmount -b'
 alias py='python'
 alias za='zathura'
 function rr() { ranger --cmd="enter_bookmark $1" --cmd="cd $2" }
+function mcd() { mkdir -p "$1" && cd "$1" }
 
 # Overrides
 #
