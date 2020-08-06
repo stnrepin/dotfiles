@@ -1,5 +1,5 @@
 export ZSH="/home/acesk/.oh-my-zsh"
-ZSH_THEME="acesk"
+ZSH_THEME="stnrepin"
 
 source $ZSH/oh-my-zsh.sh
 
