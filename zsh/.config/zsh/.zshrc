@@ -1,7 +1,6 @@
 export ZSH="/home/acesk/.oh-my-zsh"
 ZSH_THEME="acesk"
 
-plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Syntax highlighting
