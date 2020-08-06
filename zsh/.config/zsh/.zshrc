@@ -41,7 +41,7 @@ alias usb-m='udisksctl mount -b'
 alias usb-u='udisksctl unmount -b'
 alias py='python'
 alias za='zathura'
-function rr() { ranger --cmd="enter_bookmark $1" }
+function rr() { ranger --cmd="enter_bookmark $1" --cmd="cd $2" }
 
 # Overrides
 #
