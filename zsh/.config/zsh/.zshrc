@@ -54,6 +54,7 @@ alias cal='cal -m -3'
 
 # Git
 #
+alias g='git'
 alias gcl='git clone'
 alias gf='git fetch'
 alias ga='git add'
