@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/data/Drives/GoogleDrive/Documents/Study/sem04/SP/qt-23-tree/src'
+let g:netrw_dirhist_5='/data/Drives/GoogleDrive/Documents/Study/sem04/Eng'
+let g:netrw_dirhist_4='/data/Drives/GoogleDrive/Documents/Study/sem04/OE/course/inc/tabs'
+let g:netrw_dirhist_3='/data/Drives/GoogleDrive/Documents/Study/sem04/OE/course'
+let g:netrw_dirhist_2='/data/Drives/GoogleDrive/Documents/Study/sem04/OE/course/inc'
+let g:netrw_dirhist_1='/data/Drives/GoogleDrive/Documents/Study/sem04/OE/course/inc/tabs'
+let g:netrw_dirhist_0='/data/Drives/GoogleDrive/Documents/Study/sem04/CM/lab2'
+let g:netrw_dirhist_9='/data/Drives/GoogleDrive/Documents/Study/sem04/CM/lab1'
+let g:netrw_dirhist_8='/data/Drives/GoogleDrive/Documents/Study/sem04/CM'
+let g:netrw_dirhist_7='/data/Drives/GoogleDrive/Documents/Study/sem04/CM/lab2'
