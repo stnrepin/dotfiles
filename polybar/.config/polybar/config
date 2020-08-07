@@ -23,6 +23,8 @@ foreground = #ccffffff
 line-color = #00000000
 line-size = 16
 
+underline-size = 3
+
 spacing = 0
 padding-right = 5
 module-margin = 3
@@ -49,13 +51,14 @@ label-mode-background = #e60053
 label-focused = %index%
 label-focused-foreground = #ffffff
 label-focused-background = #773f3f3f
+label-focused-underline = #a5a3a3
 label-focused-padding = 4
 
 label-unfocused = %index%
 label-unfocused-padding = 4
 
 label-visible = %index%
-label-visible-underline = #555555
+label-visible-background = #773f3f3f
 label-visible-padding = 4
 
 label-urgent = %index%
