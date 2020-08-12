@@ -1,13 +1,19 @@
-export ZSH="/home/acesk/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="stnrepin"
 
 source $ZSH/oh-my-zsh.sh
 
 # Syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zsh_highlighting_dir_1=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zsh_highlighting_dir_2=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f "$zsh_highlighting_dir_1" ]; then
+    source "$zsh_highlighting_dir_1"
+else
+    source "$zsh_highlighting_dir_2"
+fi
 
 # Path
-path+=('/home/acesk/.cargo/bin/')
+path+=("$HOME/.cargo/bin/")
 
 ##
 ## VARIABLES
