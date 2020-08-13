@@ -12,5 +12,7 @@ setxkbmap -layout us,ru \
     -option shift:both_capslock \
     -option grp:shift_caps_switch
 
-exec i3
+wm_name=${1:-i3}
+echo "Launching $wm_name..."
+exec $wm_name
 
