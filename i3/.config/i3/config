@@ -195,7 +195,7 @@ bindsym XF86AudioNext exec cmus-remote --next
 
 # Scripts
 #
-bindsym $mod+t exec --no-startup-id sh ~/.config/i3/popup-translate.sh
+bindsym $mod+t exec --no-startup-id sh ~/Scripts/popup-translate.sh
 
 # GAPS, BORDERS AND WINDOWS
 #
