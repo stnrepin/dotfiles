@@ -248,20 +248,8 @@ nnoremap [j J
 " Map ^
 nnoremap - ^
 
-" Buffers switch.
-function! ChangeBuf(cmd)
-    if (&modified && &modifiable)
-        execute ":w"
-    endif
-    execute a:cmd
-endfunction
-nnoremap <silent> <C-o> :call ChangeBuf(":b#")<CR>
-nnoremap <silent> <C-n> :call ChangeBuf(":bn")<CR>
-nnoremap <silent> <C-p> :call ChangeBuf(":bp")<CR>
-
-" Don't close split on bd.
-command! Bd bp\|bd \#
-
 " Fix last error.
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
+" Show the list of open buffers and execute ':b'
+nnoremap [b :ls<CR>:b<space>
