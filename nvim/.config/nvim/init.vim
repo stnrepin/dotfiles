@@ -243,7 +243,7 @@ nnoremap J 5j
 nnoremap K 5k
 
 " Concatenate the current line with below
-nnoremap [j J
+nnoremap <leader>j J
 
 " Map ^
 nnoremap - ^
@@ -251,5 +251,6 @@ nnoremap - ^
 " Fix last error.
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-" Show the list of open buffers and execute ':b'
-nnoremap [b :ls<CR>:b<space>
+" Show the list of open buffers and execute ':b' or ':sb'
+nnoremap <leader>b :ls<CR>:b<space>
+
