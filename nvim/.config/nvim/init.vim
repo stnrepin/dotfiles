@@ -216,6 +216,15 @@ set spelllang=en,ru
 set rnu
 
 " ===============================================
+" Custom commands.
+" ===============================================
+
+" Custom buffer commands
+:command -nargs=1 B b <args>
+:command -nargs=1 Bs vertical sb <args>
+:command -nargs=1 Bd bd <args>
+
+" ===============================================
 " Custom key bindings.
 " ===============================================
 
@@ -251,9 +260,8 @@ nnoremap - ^
 " Fix last error.
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-" Show the list of open buffers and execute ':b' or ':sb'
-nnoremap <leader>b :ls<CR>:b<space>
-nnoremap <leader>B :ls<CR>:sb<space>
+" Show the list of buffers before :B command
+nnoremap <leader>b :ls<CR>:B
 
 " Easy paste from  "0
 nnoremap <leader>p "0p
