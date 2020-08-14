@@ -253,4 +253,9 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Show the list of open buffers and execute ':b' or ':sb'
 nnoremap <leader>b :ls<CR>:b<space>
+nnoremap <leader>B :ls<CR>:sb<space>
+
+" Easy paste from  "0
+nnoremap <leader>p "0p
+nnoremap <leader>P "0P
 
