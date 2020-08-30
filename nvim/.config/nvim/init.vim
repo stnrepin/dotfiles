@@ -228,6 +228,9 @@ set rnu
 " Custom key bindings.
 " ===============================================
 
+" Set <leader>
+let mapleader="["
+
 " Use the damn hjkl keys
 noremap <up> <nop>
 noremap <down> <nop>
