@@ -177,9 +177,12 @@ bindsym $mod+F1 exec pamixer --toggle-mute
 bindsym $mod+F2 exec pamixer --decrease 5
 bindsym $mod+F3 exec pamixer --increase 5
 bindsym $mod+F9 exec physlock -s
-bindsym $mod+F10 exec cmus-remote --pause
-bindsym $mod+F11 exec cmus-remote --prev
-bindsym $mod+F12 exec cmus-remote --next
+#bindsym $mod+F10 exec cmus-remote --pause
+#bindsym $mod+F11 exec cmus-remote --prev
+#bindsym $mod+F12 exec cmus-remote --next
+bindsym $mod+F10 exec mpc toggle
+bindsym $mod+F11 exec mpc prev
+bindsym $mod+F12 exec mpc next
 
 # Special keys
 #
@@ -189,9 +192,12 @@ bindsym XF86AudioLowerVolume exec pamixer --decrease 5
 bindsym XF86AudioRaiseVolume exec pamixer --increase 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86AudioPlay exec cmus-remote --pause
-bindsym XF86AudioPrev exec cmus-remote --prev
-bindsym XF86AudioNext exec cmus-remote --next
+#bindsym XF86AudioPlay exec cmus-remote --pause
+#bindsym XF86AudioPrev exec cmus-remote --prev
+#bindsym XF86AudioNext exec cmus-remote --next
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
 
 # Scripts
 #
