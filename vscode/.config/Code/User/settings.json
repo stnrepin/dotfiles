@@ -6,7 +6,7 @@
     "editor.tabCompletion": "on",
     "editor.useTabStops": false,
     "editor.minimap.enabled": false,
-    "editor.renderWhitespace": "boundary",
+    "editor.renderWhitespace": "trailing",
     "editor.trimAutoWhitespace": false,
     "breadcrumbs.enabled": false,
     "keyboard.dispatch": "keyCode",
