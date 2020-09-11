@@ -270,3 +270,5 @@ nnoremap <leader>b :ls<CR>:B
 nnoremap <leader>p "0p
 nnoremap <leader>P "0P
 
+" Format paragraph
+nnoremap <leader>q vipgq
