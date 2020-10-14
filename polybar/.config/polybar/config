@@ -37,7 +37,7 @@ font-3 = "Font Awesome 5 Free:size=13;4"
 font-4 = NotoSans-Regular:size=11;3:antialias=false
 
 modules-left = i3 bspwm mpd
-modules-right = pulseaudio backlight battery keyboard date time
+modules-right = pulseaudio backlight battery date time
 
 [module/i3]
 type = internal/i3
@@ -123,16 +123,6 @@ battery = BAT0
 adapter = ADP1
 full-at = 99
 poll-interval = 0
-
-[module/keyboard]
-type = custom/script
-
-label = %output:2%
-label-font = 3
-
-tail = true
-exec = while true; do xkb-switch | tr '[:lower:]' '[:upper:]'; xkb-switch -w; done
-click-left = xkb-switch -n
 
 [module/date]
 type = internal/date
