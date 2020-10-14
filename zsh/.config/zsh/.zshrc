@@ -33,8 +33,8 @@ bindkey "^J" history-beginning-search-forward
 
 # Sudos
 #
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
+alias poweroff='systemctl poweroff'
+alias reboot='systemctl reboot'
 alias netctl='sudo netctl'
 alias wifi-menu='sudo wifi-menu'
 
@@ -48,6 +48,7 @@ alias usb-u='udisksctl unmount -b'
 alias py='python'
 alias za='zathura'
 alias trclip='transmission-cli "$(xclip -o)"'
+alias open='xdg-open'
 
 # Functions
 #
@@ -58,7 +59,6 @@ function rr() {
         ranger
     fi
 }
-
 function mcd() { mkdir -p "$1" && cd "$1" }
 
 # Overrides
