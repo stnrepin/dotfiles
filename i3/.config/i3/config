@@ -201,8 +201,6 @@ bindsym $mod+t exec --no-startup-id sh ~/Scripts/popup-translate.sh
 #
 workspace 6 output DVI-0
 
-gaps inner 5
-
 # smart_borders enable
 new_window none
 for_window [class="^.*"] border pixel 1
