@@ -131,4 +131,5 @@
     "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/xkb-switch -s {im}",
     "vim.easymotion": true,
     "window.zoomLevel": 0,
+    "workbench.colorTheme": "Nord",
 }
