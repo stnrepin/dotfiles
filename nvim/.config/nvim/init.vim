@@ -118,7 +118,7 @@ set shortmess+=I
 
 " Default encoding.
 set termencoding=utf-8
-set encoding=utf8
+set encoding=utf-8
 
 " Make the command-line completion better.
 set wildmenu
@@ -263,8 +263,9 @@ nnoremap - ^
 " Fix last error.
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-" Show the list of buffers before :B command
-nnoremap <leader>b :ls<CR>:B
+" Show the list of buffers before :b command
+nnoremap <leader>b :ls<CR>:b<Space>
+nnoremap <leader>B :ls<CR>:B<Space>
 
 " Easy paste from  "0
 nnoremap <leader>p "0p
