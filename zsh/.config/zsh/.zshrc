@@ -1,7 +1,10 @@
+# Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="stnrepin"
-
+ZSH_THEME=''
 source $ZSH/oh-my-zsh.sh
+
+# Theme
+source /home/$USER/.config/zsh/stnrepin.zsh
 
 # Syntax highlighting
 zsh_highlighting_dir_1=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -41,7 +44,9 @@ alias wifi-menu='sudo wifi-menu'
 # New commands
 #
 alias lsa='ls -apv'
+alias ll='ls -1lhapv';
 alias cd..='cd ..'
+
 alias r='ranger'
 alias usb-m='udisksctl mount -b'
 alias usb-u='udisksctl unmount -b'
