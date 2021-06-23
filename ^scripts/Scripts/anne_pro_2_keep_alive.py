@@ -22,7 +22,10 @@ def main():
         input_by_id_path = Path('/dev/input/by-id/')
 
         anne_pro_inputs = []
-        for anne_pro_input_path in input_by_id_path.glob(ANNE_PRO_2_INPUT_ID_GLOB):
+        inputs = list(input_by_id_path.glob(ANNE_PRO_2_INPUT_ID_GLOB))
+        if len(inputs) == 0:
+            raise FileNotFoundError("can't find any Anne Pro 2 inputs")
+        for anne_pro_input_path in inputs:
             i = AnneProInput(anne_pro_input_path)
             anne_pro_inputs.append(i)
 
