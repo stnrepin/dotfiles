@@ -4,8 +4,6 @@
 " Disable vi compatibility.
 set nocompatible
 
-filetype off
-
 " ===============================================
 " Plugins
 " ===============================================
@@ -29,19 +27,11 @@ Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['cpp', 'c']}
 " Easymotion
 Plug 'easymotion/vim-easymotion'
 
-" Markdown
-Plug 'godlygeek/tabular', {'for': 'markdown' }
-Plug 'plasticboy/vim-markdown', {'for': 'markdown' }
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" Fzf
+Plug 'junegunn/fzf.vim'
 
 " Latex
 Plug 'lervag/vimtex', {'for': 'latex' }
-
-" Center text in Vim
-Plug 'junegunn/goyo.vim'
-
-" Terminal in Vim
-Plug 'kassio/neoterm'
 
 " Surround
 Plug 'tpope/vim-surround'
@@ -50,8 +40,6 @@ Plug 'tpope/vim-surround'
 Plug 'jamessan/vim-gnupg'
 
 call plug#end()
-
-filetype indent plugin on
 
 " ===============================================
 " Plugins config
@@ -65,7 +53,7 @@ if exists('+termguicolors')
 endif
 colorscheme onehalfdark
 
-" Keyboard switcher.
+" Keyboard switcher
 let g:XkbSwitchEnabled=1
 let g:XkbSwitchLib='/usr/lib/libxkbswitch.so'
 let g:XkbSwitchIMappings=['ru']
@@ -76,26 +64,15 @@ let g:UltiSnipsSnippetDirectories=[
     \ $HOME.'/.vim/plugged/vim-snippets/UltiSnips'
 \ ]
 
-" Markdown
-let g:vim_markdown_math=1
-let g:vim_markdown_strikethrough=1
-let g:vim_markdown_auto_insert_bullets=0
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_conceal=0
-let g:vim_markdown_conceal_code_blocks = 0
-let g:vim_markdown_frontmatter=1
-let g:instant_markdown_mathjax=1
-let g:instant_markdown_autostart=0
-let g:instant_markdown_browser="electron"
-
 " Latex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
+let g:did_inden=0
 
-" Neoterm
-let g:neoterm_default_mod='edit'
-autocmd TermOpen *neoterm* setlocal nospell
+" Fzf
+let g:fzf_layout = { 'down': '~40%' }
+
 
 " ===============================================
 " Plugins key bindings
@@ -216,20 +193,11 @@ set spelllang=en,ru
 set rnu
 
 " ===============================================
-" Custom commands.
-" ===============================================
-
-" Custom buffer commands
-:command -nargs=1 B b <args>
-:command -nargs=1 Bs vertical sb <args>
-:command -nargs=1 Bd bd <args>
-
-" ===============================================
 " Custom key bindings.
 " ===============================================
 
 " Set <leader>
-let mapleader="["
+let mapleader=';'
 
 " Use the damn hjkl keys
 noremap <up> <nop>
@@ -251,25 +219,26 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <silent> <leader><leader> :nohlsearch<CR>
 
 " Quick moving by text.
-nnoremap J 5j
-nnoremap K 5k
+""nnoremap J 5j
+""nnoremap K 5k
 
 " Concatenate the current line with below
 nnoremap <leader>j J
-
-" Map ^
-nnoremap - ^
 
 " Fix last error.
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Show the list of buffers before :b command
-nnoremap <leader>b :ls<CR>:b<Space>
-nnoremap <leader>B :ls<CR>:B<Space>
+nnoremap <leader>b :Buffers<CR>
 
-" Easy paste from  "0
-nnoremap <leader>p "0p
-nnoremap <leader>P "0P
+" Open ripgrep
+nnoremap <leader>r :Rg<Space>
+nnoremap <leader>R :Rg <C-R>0
 
 " Format paragraph
 nnoremap <leader>q vipgq
+
+" Easy buffer moving
+nnoremap [b :bprev<CR>
+nnoremap ]b :bnext<CR>
+
