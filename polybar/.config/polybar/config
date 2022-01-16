@@ -1,6 +1,6 @@
 [bar/default-desktop1-mon1]
 inherit = bar/default
-monitor = ${env:MONITOR:HDMI-0}
+monitor = ${env:MONITOR:HDMI-2}
 
 [bar/default-desktop1-mon2]
 inherit = bar/default
