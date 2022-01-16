@@ -10,6 +10,7 @@ monitor = ${env:MONITOR:DVI-0}
 inherit = bar/default
 dpi = 144
 background = #3a3645
+height = 32
 
 [bar/default]
 width = 100%
