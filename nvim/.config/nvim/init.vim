@@ -4,6 +4,9 @@
 " Disable vi compatibility.
 set nocompatible
 
+" Set <leader>
+let mapleader=' '
+
 " ===============================================
 " Plugins
 " ===============================================
@@ -84,7 +87,8 @@ let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
 " Easymotion
-map <Space> <Plug>(easymotion-prefix)
+map <leader><Space> <Plug>(easymotion-prefix)
+nmap <Tab> <Plug>(easymotion-bd-w)
 
 " ===============================================
 " Common
@@ -160,9 +164,6 @@ set noshowmode
 " Show matching brackets.
 set showmatch
 
-" Autosave
-"set autowrite
-
 " Always show sign column
 set signcolumn=yes
 
@@ -182,9 +183,6 @@ set cursorline
 " Don't show preview window
 set completeopt-=preview
 
-" Make the path to the file always relative.
-autocmd BufReadPost * silent! lcd .
-
 " Enable spelling
 set spell
 set spelllang=en,ru
@@ -195,15 +193,6 @@ set rnu
 " ===============================================
 " Custom key bindings.
 " ===============================================
-
-" Set <leader>
-let mapleader=';'
-
-" Use the damn hjkl keys
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
 
 " Remap j and k to act as expected when used on long, wrapped, lines
 nnoremap j gj
@@ -216,7 +205,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Clears the search register
-nnoremap <silent> <leader><leader> :nohlsearch<CR>
+nnoremap <silent> <leader>; :nohlsearch<CR>
 
 " Quick moving by text.
 ""nnoremap J 5j
@@ -228,9 +217,6 @@ nnoremap <leader>j J
 " Fix last error.
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-" Show the list of buffers before :b command
-nnoremap <leader>b :Buffers<CR>
-
 " Open ripgrep
 nnoremap <leader>r :Rg<Space>
 nnoremap <leader>R :Rg <C-R>0
@@ -239,6 +225,8 @@ nnoremap <leader>R :Rg <C-R>0
 nnoremap <leader>q vipgq
 
 " Easy buffer moving
-nnoremap [b :bprev<CR>
-nnoremap ]b :bnext<CR>
+nnoremap <silent> <leader>[ :bprev<CR>
+nnoremap <silent> <leader>] :bnext<CR>
+" Show the list of buffers before :b command
+nnoremap <leader>\ :Buffers<CR>
 
