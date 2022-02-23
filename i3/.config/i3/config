@@ -199,7 +199,7 @@ bindsym $mod+t exec --no-startup-id sh ~/Scripts/popup-translate.sh
 
 # GAPS, BORDERS AND WINDOWS
 #
-workspace 6 output DVI-0
+workspace 6 output HDMI-2
 
 # smart_borders enable
 new_window none

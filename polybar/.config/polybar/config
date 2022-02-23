@@ -1,10 +1,10 @@
 [bar/default-desktop1-mon1]
 inherit = bar/default
-monitor = ${env:MONITOR:HDMI-2}
+monitor = ${env:MONITOR:DP-1}
 
 [bar/default-desktop1-mon2]
 inherit = bar/default
-monitor = ${env:MONITOR:DVI-0}
+monitor = ${env:MONITOR:HDMI-2}
 
 [bar/default-notebook1]
 inherit = bar/default
@@ -18,7 +18,7 @@ height = 28
 
 bottom = true
 
-background = #0000000
+background = #ff000000
 foreground = #ccffffff
 
 line-color = #00000000
