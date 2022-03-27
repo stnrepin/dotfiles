@@ -5,6 +5,7 @@
 set nocompatible
 
 " Set <leader>
+nnoremap <Space> <nop>
 let mapleader=' '
 
 " ===============================================
@@ -225,8 +226,8 @@ nnoremap <leader>R :Rg <C-R>0
 nnoremap <leader>q vipgq
 
 " Easy buffer moving
-nnoremap <silent> <leader>[ :bprev<CR>
-nnoremap <silent> <leader>] :bnext<CR>
+nnoremap <silent> <leader>h :bprev<CR><C-g>
+nnoremap <silent> <leader>l :bnext<CR><C-g>
 " Show the list of buffers before :b command
 nnoremap <leader>\ :Buffers<CR>
 
