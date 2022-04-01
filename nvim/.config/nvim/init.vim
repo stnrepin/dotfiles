@@ -1,6 +1,3 @@
-" Vim config.
-" ===============================================
-
 " Disable vi compatibility.
 set nocompatible
 
@@ -8,92 +5,11 @@ set nocompatible
 nnoremap <Space> <nop>
 let mapleader=' '
 
-" ===============================================
-" Plugins
-" ===============================================
-
-call plug#begin('~/.vim/plugged')
-
-" Color scheme
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-
-" Keyboard switcher.
-Plug 'lyokha/vim-xkbswitch'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" Highlight
-Plug 'justinmk/vim-syntax-extra'
-Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['cpp', 'c']}
-
-" Easymotion
-Plug 'easymotion/vim-easymotion'
-
-" Fzf
-Plug 'junegunn/fzf.vim'
-
-" Latex
-Plug 'lervag/vimtex', {'for': 'latex' }
-
-" Surround
-Plug 'tpope/vim-surround'
-
-" Vim GPG
-Plug 'jamessan/vim-gnupg'
-
-call plug#end()
-
-" ===============================================
-" Plugins config
-" ===============================================
-
-" Color scheme
-if exists('+termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-colorscheme onehalfdark
-
-" Keyboard switcher
-let g:XkbSwitchEnabled=1
-let g:XkbSwitchLib='/usr/lib/libxkbswitch.so'
-let g:XkbSwitchIMappings=['ru']
-
-" UltiSnips
-let g:UltiSnipsSnippetDirectories=[
-    \ $HOME.'/.vim/UltiSnips',
-    \ $HOME.'/.vim/plugged/vim-snippets/UltiSnips'
-\ ]
-
-" Latex
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-let g:did_inden=0
-
-" Fzf
-let g:fzf_layout = { 'down': '~40%' }
-
-
-" ===============================================
-" Plugins key bindings
-" ===============================================
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger = '<Tab>'
-let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-
-" Easymotion
-map <leader><Space> <Plug>(easymotion-prefix)
-nmap <Tab> <Plug>(easymotion-bd-w)
-
-" ===============================================
+"
 " Common
-" ===============================================
+"
+
+colorscheme pablo
 
 " Hide launch screen.
 set shortmess+=I
@@ -191,9 +107,9 @@ set spelllang=en,ru
 " Relative line numbering
 set rnu
 
-" ===============================================
+"
 " Custom key bindings.
-" ===============================================
+"
 
 " Remap j and k to act as expected when used on long, wrapped, lines
 nnoremap j gj
@@ -208,19 +124,8 @@ nnoremap <C-H> <C-W><C-H>
 " Clears the search register
 nnoremap <silent> <leader>; :nohlsearch<CR>
 
-" Quick moving by text.
-""nnoremap J 5j
-""nnoremap K 5k
-
-" Concatenate the current line with below
-nnoremap <leader>j J
-
 " Fix last error.
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
-" Open ripgrep
-nnoremap <leader>r :Rg<Space>
-nnoremap <leader>R :Rg <C-R>0
 
 " Format paragraph
 nnoremap <leader>q vipgq
@@ -228,6 +133,15 @@ nnoremap <leader>q vipgq
 " Easy buffer moving
 nnoremap <silent> <leader>h :bprev<CR><C-g>
 nnoremap <silent> <leader>l :bnext<CR><C-g>
-" Show the list of buffers before :b command
-nnoremap <leader>\ :Buffers<CR>
 
+nnoremap <leader>\ :ls<CR>
+
+let s:conf_files = [
+      \ 'plugins.vim',
+      \ ]
+for s:fname in s:conf_files
+    let s:full_fname = printf('%s/%s', stdpath('config'), s:fname)
+    if filereadable(s:full_fname)
+        execute 'source' s:full_fname
+    endif
+endfor
