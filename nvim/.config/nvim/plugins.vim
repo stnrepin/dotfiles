@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 " Color scheme
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'arcticicestudio/nord-vim'
 
 " Keyboard switcher.
 Plug 'lyokha/vim-xkbswitch'
@@ -45,7 +46,16 @@ if exists('+termguicolors')
   let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-colorscheme onehalfdark
+
+let g:nord_underline=0
+let g:nord_italic_comments=1
+
+augroup nord-theme-overrides
+  autocmd!
+  autocmd ColorScheme nord highlight SpellBad gui=NONE
+augroup END
+
+colorscheme nord
 
 " Keyboard switcher
 let g:XkbSwitchEnabled=1
@@ -83,4 +93,4 @@ nmap <Tab> <Plug>(easymotion-bd-w)
 " Fzf
 nnoremap <leader>r :Rg<Space>
 nnoremap <leader>R :Rg <C-R>0
-nnoremap <leader>\ :Buffers<CR>
+nnoremap <leader>/ :Buffers<CR>
