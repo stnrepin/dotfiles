@@ -134,7 +134,7 @@ nnoremap <leader>q vipgq
 nnoremap <silent> <leader>h :bprev<CR><C-g>
 nnoremap <silent> <leader>l :bnext<CR><C-g>
 
-nnoremap <leader>\ :ls<CR>
+nnoremap <leader>/ :ls<CR>
 
 let s:conf_files = [
       \ 'plugins.vim',
