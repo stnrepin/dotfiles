@@ -1,51 +1,21 @@
+import:
+  - ~/.config/nord/nord-alacritty/src/nord.yml
+
 font:
-  # The normal (roman) font face to use.
   normal:
     family: Hack
-    # Style can be specified to pick a specific face.
     style: Regular
 
-  # The bold font face
   bold:
     family: Hack
-    # Style can be specified to pick a specific face.
-    # style: Bold
 
-  # The italic font face
   italic:
     family: Hack
-    # Style can be specified to pick a specific face.
-    # style: Italic
-  size: 13
+
+  size: 14
 
 mouse:
   hide_when_typing: true
-
-# Colors (Based on One Half, but I don't know where did I find other colors)
-colors:
-  primary:
-    background: '0x282c34'
-    foreground: '0xdcdfe4'
-
-  normal:
-    black: '0x282c34'
-    red: '0x705050'
-    green: '0x60b48a'
-    yellow: '0xdfaf8f'
-    blue: '0x506070'
-    magenta: '0xdc8cc3'
-    cyan: '0x8cd0d3'
-    white: '0xdcdccc'
-
-  bright:
-    black: '0x709080'
-    red: '0xdca3a3'
-    green: '0xc3bf9f'
-    yellow: '0xf0dfaf'
-    blue: '0x94bff3'
-    magenta: '0xec93d3'
-    cyan: '0x93e0e3'
-    white: '0xffffff'
 
 key_bindings:
   - { key: T,        mods: Control,       action: SpawnNewInstance             }
