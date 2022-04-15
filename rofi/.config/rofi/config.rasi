@@ -1,0 +1,4 @@
+configuration {
+}
+
+@theme "~/.config/nord/nord-rofi/nord.rasi"
