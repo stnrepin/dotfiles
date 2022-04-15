@@ -18,7 +18,7 @@ Clone the repository to any directory. Recommended directory is `~/.dotfiles`
 (used further).
 
 ```sh
-git clone https://github.com/stnrepin/dotfiles ~/.dotfiles
+git clone --recurse-submodules https://github.com/stnrepin/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 ```
 
