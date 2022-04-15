@@ -138,6 +138,7 @@ nnoremap <leader>/ :ls<CR>
 
 let s:conf_files = [
       \ 'plugins.vim',
+      \ 'colors.vim',
       \ ]
 for s:fname in s:conf_files
     let s:full_fname = printf('%s/%s', stdpath('config'), s:fname)
