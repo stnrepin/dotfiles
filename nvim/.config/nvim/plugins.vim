@@ -41,9 +41,13 @@ endif
 let g:nord_underline=0
 let g:nord_italic_comments=1
 
+" Disable underlining in spelling.
 augroup nord-theme-overrides
   autocmd!
   autocmd ColorScheme nord highlight SpellBad gui=NONE
+  autocmd ColorScheme nord highlight SpellCap gui=NONE
+  autocmd ColorScheme nord highlight SpellLocal gui=NONE
+  autocmd ColorScheme nord highlight SpellRare gui=NONE
 augroup END
 
 colorscheme nord
