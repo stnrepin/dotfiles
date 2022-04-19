@@ -5,28 +5,19 @@
 call plug#begin('~/.vim/plugged')
 
 " Color scheme
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'arcticicestudio/nord-vim'
 
 " Keyboard switcher.
 Plug 'lyokha/vim-xkbswitch'
 
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
 " Highlight
-Plug 'justinmk/vim-syntax-extra'
-Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['cpp', 'c']}
-
-" Easymotion
-Plug 'easymotion/vim-easymotion'
+Plug 'bfrg/vim-cpp-modern', { 'for': ['cpp', 'c'] }
 
 " Fzf
 Plug 'junegunn/fzf.vim'
 
 " Latex
-Plug 'lervag/vimtex', {'for': 'latex' }
+Plug 'lervag/vimtex', { 'for': 'latex' }
 
 " Surround
 Plug 'tpope/vim-surround'

@@ -115,11 +115,12 @@ set rnu
 nnoremap j gj
 nnoremap k gk
 
-" Easy window navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Do not close a window on :bd
+nnoremap <leader>q :b#<Bar>bd#<CR>
+
+" Move half screen more conveniently
+nnoremap <C-j> 5<C-e>
+nnoremap <C-k> 5<C-y>
 
 " Clears the search register
 nnoremap <silent> <leader>; :nohlsearch<CR>
@@ -128,13 +129,17 @@ nnoremap <silent> <leader>; :nohlsearch<CR>
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Format paragraph
-nnoremap <leader>q vipgq
-
-" Easy buffer moving
-nnoremap <silent> <leader>h :bprev<CR><C-g>
-nnoremap <silent> <leader>l :bnext<CR><C-g>
+nnoremap <leader>= vipgq
 
 nnoremap <leader>/ :ls<CR>
+
+" Tags
+nnoremap <leader>d g<C-]>
+nnoremap <leader>D <C-T>
+nnoremap <leader>t :ts<Space>
+
+" Buffers
+nnoremap <leader>o :b#<CR>
 
 let s:conf_files = [
       \ 'plugins.vim',
