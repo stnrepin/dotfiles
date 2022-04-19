@@ -89,3 +89,4 @@ nmap <Tab> <Plug>(easymotion-bd-w)
 nnoremap <leader>r :Rg<Space>
 nnoremap <leader>R :Rg <C-R>0
 nnoremap <leader>/ :Buffers<CR>
+nnoremap <leader>f :Files<CR>
