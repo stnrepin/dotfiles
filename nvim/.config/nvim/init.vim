@@ -133,17 +133,12 @@ nnoremap <leader>= vipgq
 
 nnoremap <leader>/ :ls<CR>
 
-" Tags
-nnoremap <leader>d g<C-]>
-nnoremap <leader>D <C-T>
-nnoremap <leader>t :ts<Space>
-
 " Buffers
 nnoremap <leader>o :b#<CR>
 
 let s:conf_files = [
       \ 'plugins.vim',
-      \ 'colors.vim',
+      \ 'ide.vim',
       \ ]
 for s:fname in s:conf_files
     let s:full_fname = printf('%s/%s', stdpath('config'), s:fname)
