@@ -71,12 +71,12 @@ set noswapfile
 " Show line number.
 set number
 
-" Change default status line.
-set statusline=%=%P\ %f\ %m
 " Don't show status line.
 set laststatus=0
 " Hide INSERT status.
 set noshowmode
+" Set ruler format
+set rulerformat=%42(%t%r%=%-14.(%l,%c%V%)\ %P%)
 
 " Show matching brackets.
 set showmatch
@@ -118,7 +118,7 @@ nnoremap k gk
 " Do not close a window on :bd
 nnoremap <leader>q :b#<Bar>bd#<CR>
 
-" Move half screen more conveniently
+" Scroll screen more conveniently
 nnoremap <C-j> 5<C-e>
 nnoremap <C-k> 5<C-y>
 
