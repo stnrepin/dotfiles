@@ -57,12 +57,6 @@ let g:XkbSwitchEnabled=1
 let g:XkbSwitchLib='/usr/lib/libxkbswitch.so'
 let g:XkbSwitchIMappings=['ru']
 
-" UltiSnips
-let g:UltiSnipsSnippetDirectories=[
-    \ $HOME.'/.vim/UltiSnips',
-    \ $HOME.'/.vim/plugged/vim-snippets/UltiSnips'
-\ ]
-
 " Latex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -75,15 +69,6 @@ let g:fzf_layout = { 'down': '~40%' }
 "
 " Plugins key bindings
 "
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger = '<Tab>'
-let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-
-" Easymotion
-map <leader><Space> <Plug>(easymotion-prefix)
-nmap <Tab> <Plug>(easymotion-bd-w)
 
 " Fzf
 nnoremap <leader>r :Rg<Space>
