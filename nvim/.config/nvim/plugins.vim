@@ -39,6 +39,7 @@ if exists('+termguicolors')
 endif
 
 let g:nord_underline=0
+let g:nord_italic=1
 let g:nord_italic_comments=1
 
 " Disable underlining in spelling.
