@@ -15,9 +15,10 @@ endif
 call plug#end()
 
 if g:ide ==? 'cpp'
-    nnoremap <leader>d g<C-]>
+    nnoremap <leader>pd g<C-]>
     nnoremap <leader>D <C-T>
     nnoremap <leader>t :ts<Space>
+    nnoremap <leader>pt :ptag<Space>
 
     function! s:ClangFormat(first, last)
         let l:winview = winsaveview()
