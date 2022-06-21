@@ -75,4 +75,5 @@ let g:fzf_layout = { 'down': '~40%' }
 nnoremap <leader>r :Rg<Space>
 nnoremap <leader>R :Rg <C-R>0
 nnoremap <leader>/ :Buffers<CR>
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>ff :GFiles -mcdo --exclude-from=.gitignore<CR>
+nnoremap <leader>fa :Files<CR>
