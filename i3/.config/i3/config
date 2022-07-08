@@ -197,9 +197,15 @@ bindsym XF86AudioNext exec cmus-remote --next
 #
 bindsym $mod+t exec --no-startup-id sh ~/Scripts/popup-translate.sh
 
-# GAPS, BORDERS AND WINDOWS
+# Workspace motinors
 #
 workspace 6 output HDMI-2
+workspace 7 output HDMI-2
+workspace 8 output HDMI-2
+workspace 9 output HDMI-2
+workspace 0 output HDMI-2
+
+# GAPS, BORDERS AND WINDOWS
 
 # smart_borders enable
 new_window none
