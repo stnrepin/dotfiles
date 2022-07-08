@@ -93,3 +93,7 @@ alias gl='git log'
 alias gch='git checkout'
 alias gb='git branch'
 
+# Build with CMake
+#
+alias b='cmake --build .'
+
