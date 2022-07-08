@@ -96,4 +96,10 @@ return require('packer').startup(function()
         },
         config = [[ require('config.cmp') ]],
     }
+
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = [[ require('config.telescope') ]],
+    }
 end)
