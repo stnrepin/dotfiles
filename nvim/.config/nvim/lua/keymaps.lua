@@ -24,3 +24,6 @@ map('n', '<leader>/', ':ls<CR>')
 
 -- Go to previous buffer.
 map('n', '<leader>o', ':b#<CR>')
+
+-- Close nvim-tree
+map('n', '<F2>', ':NvimTreeToggle<CR>')
