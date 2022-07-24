@@ -6,6 +6,6 @@ vim.cmd[[
     nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 ]]
 vim.cmd[[
-    nnoremap <leader><leader> <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
+    nnoremap <leader><leader> <cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>
 ]]
 
