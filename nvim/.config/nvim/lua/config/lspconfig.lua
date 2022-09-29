@@ -9,6 +9,8 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+    require "lsp_signature".on_attach(signature_setup, bufnr)
+
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -30,15 +32,24 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+
+    vim.cmd('nnoremap <F10> :ClangdSwitchSourceHeader<CR>')
+
+    vim.cmd[[ :syntax on<CR> ]]
 end
 
 local lspconfig = require('lspconfig')
 
+local capabilities = require('cmp_nvim_lsp')
+    .update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = false
+
 lspconfig['rust_analyzer'].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = lsp_flags,
     settings = {
-        ["rust-analyzer"] = {
+        ['rust-analyzer'] = {
             cargo = {
                 allFeatures = true,
             },
@@ -53,19 +64,20 @@ lspconfig['rust_analyzer'].setup {
 
 lspconfig['clangd'].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = lsp_flags,
     settings = {
-        ["clangd"] = {
+        ['clangd'] = {
             cmd = {
-                "clangd",
-                "--background-index",
+                'clangd',
+                '--background-index',
                 -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
                 -- to add more checks, create .clang-tidy file in the root directory
                 -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
-                "--clang-tidy",
-                "--completion-style=bundled",
-                "--cross-file-rename",
-                "--header-insertion=iwyu",
+                '--clang-tidy',
+                '--completion-style=bundled',
+                '--cross-file-rename',
+                '--header-insertion=iwyu',
             },
             init_options = {
                 clangdFileStatus = true,

@@ -1,8 +1,9 @@
 local map = vim.api.nvim_set_keymap
 local g = vim.g
 
-g.nord_underline = 0
-g.nord_italic = 1
-g.nord_italic_comments = 1
+g.nord_bold = true
+g.nord_underline = false
+g.nord_italic = true
+g.nord_italic_comments = true
 
 vim.cmd('colorscheme nord')

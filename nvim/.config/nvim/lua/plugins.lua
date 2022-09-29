@@ -39,6 +39,13 @@ return require('packer').startup(function()
         --config = [[ vim.cmd('colorscheme base16-gruvbox-dark-hard') ]]
     }
     use {
+        'nvim-treesitter/nvim-treesitter',
+        config = [[ require('config.nvim-treesitter') ]],
+        run = [[ require('nvim-treesitter.install').update({ with_sync = true }) ]],
+
+    }
+
+    use {
         'bfrg/vim-cpp-modern',
         disable = true
     }
@@ -53,6 +60,7 @@ return require('packer').startup(function()
     }
     -- Surround with specified text.
     use 'tpope/vim-surround'
+
     -- Project file tree.
     use {
         'kyazdani42/nvim-tree.lua',
@@ -73,17 +81,7 @@ return require('packer').startup(function()
     }
 
     use {
-        'rhysd/vim-clang-format'
-    }
-
-    use {
         'ray-x/lsp_signature.nvim',
-    }
-
-    -- LSP
-    use {
-        'neovim/nvim-lspconfig',
-        config = [[ require('config.lspconfig') ]],
     }
 
     -- Completion
@@ -97,9 +95,31 @@ return require('packer').startup(function()
         config = [[ require('config.cmp') ]],
     }
 
+    -- LSP
     use {
-        'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
-        config = [[ require('config.telescope') ]],
+        'neovim/nvim-lspconfig',
+        requires = {
+            'hrsh7th/nvim-cmp',
+        },
+        config = [[ require('config.lspconfig') ]],
     }
+
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    }
+
+     use {
+         'nvim-telescope/telescope.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope-fzf-native.nvim'
+        },
+         config = [[ require('config.telescope') ]],
+     }
+
+     use {
+         'lewis6991/spellsitter.nvim'
+     }
 end)

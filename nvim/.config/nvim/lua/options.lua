@@ -69,9 +69,19 @@ vim.cmd([[ set t_8f=^[[38;2;%lu;%lu;%lum ]])
 vim.cmd([[ set t_8b=^[[48;2;%lu;%lu;%lum ]])
 opt.termguicolors = true
 
+-- Set a title of a terminal
+opt.title = true
+
 -- Netrw.
 g.netrw_banner = 0
 g.netrw_liststyle = 3
 g.netrw_browse_split = 4
 g.netrw_altv = 0
 g.netrw_winsize = 25
+
+-- Make C-O working properly inside a buffer.
+vim.cmd [[
+    autocmd BufRead * autocmd FileType <buffer> ++once
+      \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+]]
+

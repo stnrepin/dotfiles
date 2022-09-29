@@ -3,7 +3,7 @@ local cmp = require'cmp'
 cmp.setup({
     snippet = {
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
+            vim.fn['vsnip#anonymous'](args.body)
         end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -18,15 +18,3 @@ cmp.setup({
         { name = 'buffer' },
     })
 })
-
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp')
-                        .update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-local lspconfig = require('lspconfig')
-lspconfig['rust_analyzer'].setup {
-    capabilities = capabilities
-}
-lspconfig['clangd'].setup {
-    capabilities = capabilities
-}
