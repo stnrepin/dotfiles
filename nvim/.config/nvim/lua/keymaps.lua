@@ -27,6 +27,3 @@ map('n', '<leader>o', ':b#<CR>')
 
 -- Close nvim-tree
 map('n', '<F2>', ':NvimTreeFindFileToggle<CR>')
-
--- Format buffer
-map('n', '<leader>l', ':lua vim.lsp.buf.formatting()<CR>')

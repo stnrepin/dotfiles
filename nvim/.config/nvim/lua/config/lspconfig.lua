@@ -31,9 +31,11 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 
-    vim.cmd('nnoremap <F10> :ClangdSwitchSourceHeader<CR>')
+    -- Format buffer
+    vim.cmd('nnoremap <silent> <leader>l :lua vim.lsp.buf.format { async = true }<CR>')
+
+    vim.cmd('nnoremap <silent> <F10> :ClangdSwitchSourceHeader<CR>')
 
     vim.cmd[[ :syntax on<CR> ]]
 end
