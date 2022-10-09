@@ -1,6 +1,6 @@
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME=''
+export ZSH_THEME=''
 source $ZSH/oh-my-zsh.sh
 
 # Theme
@@ -28,7 +28,9 @@ export EDITOR='nvim'
 ## Key bindings
 ##
 bindkey "^K" history-beginning-search-backward
+bindkey "^P" history-beginning-search-backward
 bindkey "^J" history-beginning-search-forward
+bindkey "^N" history-beginning-search-forward
 
 ##
 ## ALIASES
@@ -95,5 +97,14 @@ alias gb='git branch'
 
 # Build with CMake
 #
-alias b='cmake --build .'
+alias b='cmake --build . --'
 
+ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+        tmux rename-window "$(echo $* | cut -d . -f 1)"
+        command ssh "$@"
+        tmux set-window-option automatic-rename on "on" 1>/dev/null
+    else
+        command ssh "$@"
+    fi
+}
