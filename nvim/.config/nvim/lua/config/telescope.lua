@@ -15,9 +15,6 @@ telescope.load_extension('fzf')
 
 -- @todo: Move `map()` to utils, replace these lines with it.
 vim.cmd[[
-    nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+    nnoremap <leader><leader> <cmd>lua require('telescope.builtin').find_files()<cr>
+    nnoremap <CR><CR> <cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>
 ]]
-vim.cmd[[
-    nnoremap <leader><leader> <cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>
-]]
-
