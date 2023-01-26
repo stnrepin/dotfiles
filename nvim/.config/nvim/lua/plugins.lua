@@ -28,11 +28,15 @@ return require('packer').startup(function()
         'folke/lsp-colors.nvim'
     }
     use {
+        enabled = false,
         'arcticicestudio/nord-vim',
         config = [[ require('config.theme') ]],
         requires = {
             'lsp-colors.nvim'
         }
+    }
+    use {
+        'https://github.com/gbprod/nord.nvim'
     }
     use {
         'chriskempson/base16-vim',
