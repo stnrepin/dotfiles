@@ -219,6 +219,7 @@ exec_always --no-startup-id flameshot
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill "$HOME/wallpaper.jpg"
 exec_always --no-startup-id dunst
+exec_always --no-startup-id picom -b
 
 #
 # COLORS
