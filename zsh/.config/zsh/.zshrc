@@ -27,10 +27,10 @@ export EDITOR='nvim'
 ##
 ## Key bindings
 ##
-bindkey "^K" history-beginning-search-backward
-bindkey "^P" history-beginning-search-backward
-bindkey "^J" history-beginning-search-forward
-bindkey "^N" history-beginning-search-forward
+bindkey '^K' history-beginning-search-backward
+bindkey '^P' up-line-or-beginning-search
+bindkey '^J' history-beginning-search-forward
+bindkey '^N' down-line-or-beginning-searc
 
 ##
 ## ALIASES
@@ -103,7 +103,7 @@ ssh() {
     if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
         tmux rename-window "$(echo $* | cut -d . -f 1)"
         command ssh "$@"
-        tmux set-window-option automatic-rename on "on" 1>/dev/null
+        tmux set-window-option automatic-rename on 'on' 1>/dev/null
     else
         command ssh "$@"
     fi
