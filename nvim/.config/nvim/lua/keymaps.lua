@@ -27,3 +27,12 @@ map('n', '<leader>o', ':b#<CR>')
 
 -- Close nvim-tree
 map('n', '<F2>', ':NvimTreeFindFileToggle<CR>')
+
+map('n', '<leader><BS>', ':ccl<CR>')
+
+map('n', '[q', ':cprev<CR>')
+map('n', ']q', ':cnext<CR>')
+map('n', '[Q', ':cfirst<CR>')
+map('n', ']Q', ':clast<CR>')
+
+map('n', '<BS>', '<CR>')
