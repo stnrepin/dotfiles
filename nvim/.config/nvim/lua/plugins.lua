@@ -30,17 +30,15 @@ return require('packer').startup(function()
     use {
         enabled = false,
         'arcticicestudio/nord-vim',
-        config = [[ require('config.theme') ]],
-        requires = {
-            'lsp-colors.nvim'
-        }
-    }
-    use {
-        'https://github.com/gbprod/nord.nvim'
+        --config = [[ require('config.theme') ]],
     }
     use {
         'chriskempson/base16-vim',
         --config = [[ vim.cmd('colorscheme base16-gruvbox-dark-hard') ]]
+    }
+    use {
+        'maksimr/Lucius2',
+        config = [[ vim.cmd('colorscheme lucius') ]]
     }
     use {
         'nvim-treesitter/nvim-treesitter',
