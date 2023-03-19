@@ -30,7 +30,7 @@ export EDITOR='nvim'
 bindkey '^K' history-beginning-search-backward
 bindkey '^P' up-line-or-beginning-search
 bindkey '^J' history-beginning-search-forward
-bindkey '^N' down-line-or-beginning-searc
+bindkey '^N' down-line-or-beginning-search
 
 ##
 ## ALIASES
