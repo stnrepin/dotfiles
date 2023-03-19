@@ -38,7 +38,7 @@ return require('packer').startup(function()
     }
     use {
         'maksimr/Lucius2',
-        config = [[ vim.cmd('colorscheme lucius') ]]
+        config = [[ require('config.theme') ]]
     }
     use {
         'nvim-treesitter/nvim-treesitter',
