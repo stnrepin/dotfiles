@@ -72,8 +72,9 @@ return require('packer').startup(function()
         config = [[ require('nvim-tree').setup() ]],
     }
     -- .editorconfig file support.
+    -- Until nvim 9.0
     use {
-        'editorconfig/editorconfig-vim',
+        'gpanders/editorconfig.nvim',
     }
 
     -- @todo: Conditional
@@ -108,20 +109,28 @@ return require('packer').startup(function()
 
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
     }
 
-     use {
-         'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
+    use {
+        'nvim-telescope/telescope.nvim',
         requires = {
             'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-fzf-native.nvim'
+            'nvim-telescope/telescope-fzf-native.nvim',
         },
-         config = [[ require('config.telescope') ]],
+        config = [[ require('config.telescope') ]],
      }
 
-     use {
-         'lewis6991/spellsitter.nvim'
-     }
+    use {
+        'lewis6991/spellsitter.nvim'
+    }
+    use {
+        'SmiteshP/nvim-navbuddy',
+        requires = {
+            'neovim/nvim-lspconfig',
+            'SmiteshP/nvim-navic',
+            'MunifTanjim/nui.nvim',
+        },
+        config = [[ require('config.navbuddy') ]],
+    }
 end)
