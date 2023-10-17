@@ -27,9 +27,9 @@ export EDITOR='nvim'
 ##
 ## Key bindings
 ##
-bindkey '^K' history-beginning-search-backward
+bindkey '^K' up-line-or-beginning-search
 bindkey '^P' up-line-or-beginning-search
-bindkey '^J' history-beginning-search-forward
+bindkey '^J' down-line-or-beginning-search
 bindkey '^N' down-line-or-beginning-search
 
 ##
@@ -97,7 +97,7 @@ alias gb='git branch'
 
 # Build with CMake
 #
-alias b='cmake --build . --'
+alias b='cmake --build . -- -j8'
 
 ssh() {
     if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
