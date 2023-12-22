@@ -1,5 +1,5 @@
 import:
-  - ~/.config/nord/nord-alacritty/src/nord.yml
+  - ~/.config/nord/nord-alacritty/src/nord.yaml
 
 font:
   normal:
