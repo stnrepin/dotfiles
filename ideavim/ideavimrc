@@ -1,8 +1,0 @@
-set easymotion
-set surround
-set commentary
-
-set ideamarks
-
-source ~/.config/nvim/init.vim
-
