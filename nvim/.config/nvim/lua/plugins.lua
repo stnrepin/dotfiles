@@ -1,136 +1,82 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({
-        'git',
-        'clone',
-        '--depth',
-        '1',
-        'https://github.com/wbthomason/packer.nvim', install_path
-    }) end
-
-function require_fn(file_path)
-    return function() require(file_path) end
+local path_package = vim.fn.stdpath('data') .. '/site/'
+local mini_path = path_package .. 'pack/deps/start/mini.deps'
+if not vim.loop.fs_stat(mini_path) then
+  vim.cmd('echo "Installing `mini.deps`" | redraw')
+  local clone_cmd = {
+    'git', 'clone', '--filter=blob:none',
+    'https://github.com/echasnovski/mini.deps', mini_path
+  }
+  vim.fn.system(clone_cmd)
+  vim.cmd('packadd mini.deps | helptags ALL')
 end
 
-vim.cmd [[packadd packer.nvim ]]
+-- Set up 'mini.deps' (customize to your liking)
+require('mini.deps').setup({ path = { package = path_package } })
 
--- @todo: Split like this:
---      https://github.com/fitrh/init.nvim/tree/main/lua/config/plugin/lspconfig
---
+local add = MiniDeps.add
 
-return require('packer').startup(function()
-    -- Packer itself.
-    use 'wbthomason/packer.nvim'
+function later_require(name)
+    MiniDeps.later(function()
+        require(name)
+    end)
+end
 
-    -- Theme
-    use {
-        'folke/lsp-colors.nvim'
-    }
-    use {
-        enabled = false,
-        'arcticicestudio/nord-vim',
-        --config = [[ require('config.theme') ]],
-    }
-    use {
-        'chriskempson/base16-vim',
-        --config = [[ vim.cmd('colorscheme base16-gruvbox-dark-hard') ]]
-    }
-    use {
-        'maksimr/Lucius2',
-        config = [[ require('config.theme') ]]
-    }
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        config = [[ require('config.nvim-treesitter') ]],
-        run = [[ require('nvim-treesitter.install').update({ with_sync = true }) ]],
+add('maksimr/Lucius2')
+require('config.theme')
 
-    }
+add('nvim-treesitter/nvim-treesitter')
+later_require('config.treesitter')
 
-    use {
-        'bfrg/vim-cpp-modern',
-        disable = true
-    }
-    use {
-        'jackguo380/vim-lsp-cxx-highlight',
-    }
+add('lewis6991/spellsitter.nvim')
 
-    -- Autoswitch to English in NORMAL.
-    use {
-        'lyokha/vim-xkbswitch',
-        config = [[ require('config.xkbswitch') ]],
-    }
-    -- Surround with specified text.
-    use 'tpope/vim-surround'
+add('lyokha/vim-xkbswitch')
+later_require('config.xkbswitch')
 
-    -- Project file tree.
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
-        },
-        config = [[ require('nvim-tree').setup() ]],
-    }
-    -- .editorconfig file support.
-    -- Until nvim 9.0
-    use {
-        'gpanders/editorconfig.nvim',
-    }
+add({
+    source = 'kyazdani42/nvim-tree.lua',
+    depends = { 'kyazdani42/nvim-web-devicons' },
+})
 
-    -- @todo: Conditional
-    --
-    use {
-        'rust-lang/rust.vim'
-    }
+add({
+    source = 'hrsh7th/nvim-cmp',
+    depends = {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-vsnip',
+        'hrsh7th/vim-vsnip',
+    },
+})
 
-    use {
-        'ray-x/lsp_signature.nvim',
-    }
+add('neovim/nvim-lspconfig')
 
-    -- Completion
-    use {
-        'hrsh7th/nvim-cmp',
-        requires = {
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-vsnip',
-            'hrsh7th/vim-vsnip',
-        },
-        config = [[ require('config.cmp') ]],
-    }
+add({
+    source = 'nvim-telescope/telescope-fzf-native.nvim',
+    hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
+})
 
-    -- LSP
-    use {
+add({
+    source = 'SmiteshP/nvim-navbuddy',
+    depends = {
         'neovim/nvim-lspconfig',
-        requires = {
-            'hrsh7th/nvim-cmp',
-        },
-        config = [[ require('config.lspconfig') ]],
-    }
+        'SmiteshP/nvim-navic',
+        'MunifTanjim/nui.nvim',
+    },
+})
 
-    use {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
-    }
+add('folke/lsp-colors.nvim')
 
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-fzf-native.nvim',
-        },
-        config = [[ require('config.telescope') ]],
-     }
+function load_lsp()
+    later_require('config.cmp')
+    later_require('config.lspconfig')
+    later_require('config.telescope')
+    later_require('config.navbuddy')
+end
 
-    use {
-        'lewis6991/spellsitter.nvim'
-    }
-    use {
-        'SmiteshP/nvim-navbuddy',
-        requires = {
-            'neovim/nvim-lspconfig',
-            'SmiteshP/nvim-navic',
-            'MunifTanjim/nui.nvim',
-        },
-        config = [[ require('config.navbuddy') ]],
-    }
-end)
+vim.api.nvim_create_user_command(
+    'LoadLsp',
+    function(opts)
+        print('Loading LSP plugins...')
+        load_lsp()
+        print('OK')
+    end,
+    {}
+)
