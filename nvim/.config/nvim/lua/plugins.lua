@@ -36,6 +36,7 @@ add({
     source = 'kyazdani42/nvim-tree.lua',
     depends = { 'kyazdani42/nvim-web-devicons' },
 })
+require('config.nvim-tree')
 
 add({
     source = 'hrsh7th/nvim-cmp',

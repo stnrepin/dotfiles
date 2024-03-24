@@ -10,4 +10,6 @@ vim.cmd[[
     hi CursorLineNr guifg=#616e88 guibg=none gui=none
 
     hi Visual guifg=NONE guibg=#3b4252 gui=none
+
+    hi Function guifg=#99c1f1
 ]]
