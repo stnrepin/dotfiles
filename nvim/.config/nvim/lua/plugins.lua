@@ -24,7 +24,10 @@ end
 add('maksimr/Lucius2')
 require('config.theme')
 
-add('nvim-treesitter/nvim-treesitter')
+add({
+    source = 'nvim-treesitter/nvim-treesitter',
+    hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
+})
 later_require('config.treesitter')
 
 add('lewis6991/spellsitter.nvim')
@@ -51,7 +54,7 @@ add('neovim/nvim-lspconfig')
 
 add({
     source = 'nvim-telescope/telescope-fzf-native.nvim',
-    hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
+    -- How to build automatically?
 })
 
 add({
@@ -64,6 +67,11 @@ add({
 })
 
 add('folke/lsp-colors.nvim')
+
+add({
+    source = 'nvim-telescope/telescope.nvim',
+    depends = { 'nvim-lua/plenary.nvim' },
+})
 
 function load_lsp()
     later_require('config.cmp')
