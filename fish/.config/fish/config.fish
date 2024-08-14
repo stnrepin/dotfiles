@@ -3,6 +3,8 @@ if status is-interactive
 
     set -gx EDITOR nvim
 
+    fish_add_path --append '~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/'
+
     alias poweroff='systemctl poweroff'
     alias reboot='systemctl reboot'
     alias lsa='ls -apv'
@@ -19,7 +21,7 @@ if status is-interactive
     alias ls='ls --color=auto --group-directories-first'
     alias mkdir='mkdir -p'
     alias xclip='xclip -r -selection clipboard'
-    alias cal='cal -m 3'
+    alias cal='cal -y'
 
     alias ga='git add'
     alias gcl='git clone'
@@ -28,6 +30,7 @@ if status is-interactive
     alias gc='git commit'
     alias gl='git log'
     alias gb='git branch --show-current'
-    alias gs='git status'
+    alias gs='git status -sb'
     alias gd='git diff'
+    alias makej='make -j$(expr $(nproc) + 1)'
 end
