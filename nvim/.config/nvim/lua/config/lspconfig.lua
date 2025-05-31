@@ -1,3 +1,5 @@
+vim.diagnostic.config({ virtual_text = true })
+
 local show_diags_float = function()
     local fmt = function(diag)
         return string.format('%s [%s]', diag.message, diag.code or 'no code')
@@ -11,90 +13,52 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-    local navbuddy = require('nvim-navbuddy')
-    navbuddy.attach(client, bufnr)
+vim.keymap.del('n', 'grn', {})
+vim.keymap.del('n', 'gra', {})
+vim.keymap.del('n', 'grr', {})
+vim.keymap.del('n', 'gri', {})
 
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
 
-    -- Mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.bo[ev.buf].formatexpr = nil
+
+    local bufopts = { noremap = true, silent = true, buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wl', function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, bufopts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>.', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  end,
+})
 
-    vim.keymap.set('n', '<space>n', navbuddy.open, bufopts)
+vim.lsp.config('*', {
+  capabilities = {
+    textDocument = {
+      semanticTokens = {
+        semanticHighlighting = true,
+        multilineTokenSupport = true,
+      }
+    }
+  },
+})
 
-    -- Format buffer
-    vim.cmd('nnoremap <silent> <leader>l :lua vim.lsp.buf.format { async = true }<CR>')
-
-    vim.cmd('nnoremap <silent> <F10> :ClangdSwitchSourceHeader<CR>')
-
-    vim.cmd[[ :syntax on<CR> ]]
-end
-
-local lspconfig = require('lspconfig')
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = false
-
-lspconfig['rust_analyzer'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-    settings = {
-        ['rust-analyzer'] = {
-            cargo = {
-                allFeatures = true,
-            },
-            completion = {
-                postfix = {
-                    enable = false,
-                },
-            },
-        },
-    },
+vim.lsp.config.clangd = {
+  cmd = {
+    'clangd',
+    '--background-index',
+    '--clang-tidy',
+    '--completion-style=bundled',
+    '--cross-file-rename',
+    '--header-insertion=iwyu',
+  },
+  filetypes = { 'c', 'cpp', 'h', 'hpp', 'cc', 'cxx' },
 }
 
-lspconfig['clangd'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-    settings = {
-        ['clangd'] = {
-            cmd = {
-                'clangd',
-                '--background-index',
-                -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
-                -- to add more checks, create .clang-tidy file in the root directory
-                -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
-                '--clang-tidy',
-                '--completion-style=bundled',
-                '--cross-file-rename',
-                '--header-insertion=iwyu',
-            },
-            init_options = {
-                clangdFileStatus = true,
-                usePlaceholders = true,
-                completeUnimported = true,
-                semanticHighlighting = true,
-            },
-        },
-    },
-    filetypes = { 'c', 'cpp', 'cc' },
-}
+vim.lsp.enable({'clangd'})
+

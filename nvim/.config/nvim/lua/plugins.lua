@@ -46,8 +46,6 @@ add({
     source = 'hrsh7th/nvim-cmp',
     depends = {
         'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-vsnip',
-        'hrsh7th/vim-vsnip',
     },
 })
 
@@ -55,7 +53,14 @@ add('neovim/nvim-lspconfig')
 
 add({
     source = 'nvim-telescope/telescope-fzf-native.nvim',
-    -- How to build automatically?
+    post_checkout = function(data)
+        vim.system({
+            'cmake', '-S', '.', '-Bbuild', '-DCMAKE_BUILD_TYPE=Release',
+                '-DCMAKE_POLICY_VERSION_MINIMUM=3.10', '&&',
+                'cmake', '--build', 'build', '--config', 'Release'},
+            { cwd = data.path }
+        ):wait()
+    end
 })
 
 add({
@@ -74,19 +79,7 @@ add({
     depends = { 'nvim-lua/plenary.nvim' },
 })
 
-function load_lsp()
-    later_require('config.cmp')
-    later_require('config.lspconfig')
-    later_require('config.telescope')
-    later_require('config.navbuddy')
-end
-
-vim.api.nvim_create_user_command(
-    'LoadLsp',
-    function(opts)
-        print('Loading LSP plugins...')
-        load_lsp()
-        print('OK')
-    end,
-    {}
-)
+require('config.lspconfig')
+require('config.cmp')
+require('config.telescope')
+require('config.navbuddy')
