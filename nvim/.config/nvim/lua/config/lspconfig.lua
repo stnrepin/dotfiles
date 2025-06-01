@@ -21,11 +21,10 @@ vim.keymap.del('n', 'gri', {})
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-    end
-
     vim.bo[ev.buf].formatexpr = nil
+
+    local navbuddy = require('nvim-navbuddy')
+    navbuddy.attach(client, ev.buf)
 
     local bufopts = { noremap = true, silent = true, buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -34,6 +33,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>.', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', '<space>n', navbuddy.open, bufopts)
+
+    vim.cmd('nnoremap <silent> <leader>l :lua vim.lsp.buf.format { async = true }<CR>')
   end,
 })
 
@@ -48,17 +50,27 @@ vim.lsp.config('*', {
   },
 })
 
-vim.lsp.config.clangd = {
-  cmd = {
-    'clangd',
-    '--background-index',
-    '--clang-tidy',
-    '--completion-style=bundled',
-    '--cross-file-rename',
-    '--header-insertion=iwyu',
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ["rust-analyzer"] = {
+      check = { command = "clippy" },
+      cargo = {
+        allFeatures = true,
+        buildScripts = false,
+      },
+      imports = { group = { enable = false } },
+      completion = {
+        postfix = { enable = false },
+        fullFunctionSignatures = { enable = true },
+      },
+      diagnostics = { enable = true },
+      rustfmt = { enable = true },
+      semanticHighlighting = {
+        doc = { comment = { inject = { enable = false } } }
+      }
+    },
   },
-  filetypes = { 'c', 'cpp', 'h', 'hpp', 'cc', 'cxx' },
-}
+})
 
-vim.lsp.enable({'clangd'})
+vim.lsp.enable({'clangd', 'rust_analyzer'})
 
