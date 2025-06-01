@@ -1,5 +1,5 @@
 require('nvim-navbuddy').setup {
-    window = {
-        size = '50%',
-    }
+  window = {
+      size = '50%',
+  }
 }
